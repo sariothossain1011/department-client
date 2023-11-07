@@ -3,6 +3,9 @@ import React from 'react';
 const SingleTeacherCard = ({ singleTeacher }) => {
     const { Photo, email, name, number, id } = singleTeacher;
     // console.log(Photo, email, name, number, id);
+    const handleDetails = () =>{
+        console.log(id);
+    }
     return (
         <div className="card w-96 bg-base-100 shadow-xl border-2 mx-auto">
             <figure><img src={Photo} alt="Shoes" /></figure>
@@ -11,7 +14,7 @@ const SingleTeacherCard = ({ singleTeacher }) => {
                 <p>Number : {number}</p>
                 <p>Email : {email}</p>
                 <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Contact info</button>
+                    <button onClick={handleDetails} className="btn btn-primary">Contact info</button>
                 </div>
             </div>
         </div>
