@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { AiOutlineMenu, AiOutlineMenuUnfold } from "react-icons/ai";
+import {  AiOutlineMenuUnfold } from "react-icons/ai";
 import logo from "../../assets/logo.jpg"
 const Header = () => {
   const [open, setOpen] = useState(false);
@@ -22,7 +22,7 @@ const Header = () => {
 
       <ul
         className={`md:flex md:items-center z-10 md:z-auto md:static absolute bg-white w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500 ${
-          open && "top-[70px] opacity-100 bg-primary text-white bg-[#2D72F3]"
+          open && "top-[70px] opacity-100  text-white bg-[#2D72F3]"
         }`}
       >
         <li className="mx-4 my-6 md:my-0 ">
