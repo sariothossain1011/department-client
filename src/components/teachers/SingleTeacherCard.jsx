@@ -8,8 +8,8 @@ const SingleTeacherCard = ({ singleTeacher }) => {
             <figure><img src={Photo} alt="Shoes" /></figure>
             <div className="card-body">
                 <h2 className="card-title">Name : {name}</h2>
-                <p>Number: {number}</p>
-                <p>Email: {email}</p>
+                <p>Number : {number}</p>
+                <p>Email : {email}</p>
                 <div className="card-actions justify-end">
                     <button className="btn btn-primary">Contact info</button>
                 </div>

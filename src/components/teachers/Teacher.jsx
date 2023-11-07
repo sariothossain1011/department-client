@@ -39,7 +39,7 @@ const Teacher = () => {
         {sliceJob.map(singleTeacher => <SingleTeacherCard key={singleTeacher.id} singleTeacher={singleTeacher}></SingleTeacherCard>)}
       </div>
       <div className='text-center mt-10'>
-        <button onClick={() => setSlice(!slice)} className="btn btn-warning text-base font-bold">See all teachers</button>
+        <button onClick={() => setSlice(!slice)} className="btn btn-warning text-base font-bold">See all teachers </button>
       </div>
     </div>
   )
