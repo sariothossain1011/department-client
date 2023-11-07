@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { AiOutlineMenu } from "react-icons/ai";
+import { AiOutlineMenu, AiOutlineMenuUnfold } from "react-icons/ai";
 import logo from "../../assets/logo.jpg"
 const Header = () => {
   const [open, setOpen] = useState(false);
@@ -12,15 +12,11 @@ const Header = () => {
     <nav className="p-5 bg-white shadow md:flex md:items-center md:justify-between">
       <div className="flex justify-between items-center ">
         <span className="text-2xl font-[Poppins] cursor-pointer">
-          <img
-            className="h-12 inline"
-            src={logo}
-          />
-      
+          <img className="h-12 inline" src={logo} />
         </span>
 
         <span className="text-3xl cursor-pointer mx-2 md:hidden block">
-          <AiOutlineMenu onClick={handleToggle} />
+          <AiOutlineMenuUnfold onClick={handleToggle} />
         </span>
       </div>
 
