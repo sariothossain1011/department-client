@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import HeaderPage from "./pages/header/HeaderPage";
+import HomePage from "./pages/home/HomePage";
 import BannarPage from "./pages/bannar/BannarPage";
 import AboutPage from "./pages/about/AboutPage";
 import TeacherPages from "./pages/teachers/TeacherPages";
@@ -14,15 +14,15 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<HeaderPage />}>
+        <Route path="/" element={<HomePage />}>
           <Route index element={<BannarPage />} />
           <Route path="abouts" element={<AboutPage />} />
-          <Route path="teacher" element={<TeacherPages  />} />
-          <Route path="course" element={<CoursePage  />} />
-          <Route path="achievement" element={<AchievementPage  />} />
-          <Route path="gallery" element={<GalleryPage  />} />
+          <Route path="teacher" element={<TeacherPages />} />
+          <Route path="course" element={<CoursePage />} />
+          <Route path="achievement" element={<AchievementPage />} />
+          <Route path="gallery" element={<GalleryPage />} />
           <Route path="blog" element={<BlogPage />} />
-          <Route path="footer" element={<FooterPage  />} />
+          <Route path="footer" element={<FooterPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
