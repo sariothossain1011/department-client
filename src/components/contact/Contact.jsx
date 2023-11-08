@@ -162,9 +162,7 @@ const Contact = () => {
                   })}
                 />
               </div>
-          
 
-         
               <div className="form-control">
                 <label className="label">
                   <span className="label-text text-secondary">
@@ -188,13 +186,27 @@ const Contact = () => {
                 data-aos-duration="2000"
                 className="form-control mt-6"
               >
-                <button className="btn btn-primary uppercase" type="submit">
+                <button
+                  className="btn bg-[#FB9809] hover:bg-[#FB9809] text-white uppercase"
+                  type="submit"
+                >
                   Send Message
                 </button>
               </div>
             </div>
           </form>
         </div>
+      </div>
+      <div className="my-5 md:mx-8">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3714.1997243387505!2d92.02678437402155!3d21.42139327417975!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30adc7072c31e76b%3A0x8ca53d31f4cd6859!2sCox&#39;s%20Bazar%20Polytechnic%20Institute!5e0!3m2!1sen!2sbd!4v1699468994017!5m2!1sen!2sbd"
+          width={"100%"}
+          height="400"
+          style={{ border: "2px solid #0A57E5", borderRadius: "10px" }}
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
       </div>
     </div>
   );
