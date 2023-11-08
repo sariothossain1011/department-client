@@ -31,7 +31,7 @@ const Header = () => {
           </a>
         </li>
         <li className="mx-4 my-6 md:my-0">
-          <a href="#" className="text-xl hover:text-cyan-500 duration-500">
+          <a href="/course-single" target="_blank" className="text-xl hover:text-cyan-500 duration-500">
             Courses
           </a>
         </li>
@@ -46,7 +46,7 @@ const Header = () => {
           </a>
         </li>
         <li className="mx-4 my-6 md:my-0">
-          <a href="#" className="text-xl hover:text-cyan-500 duration-500">
+          <a href="/blogs" className="text-xl hover:text-cyan-500 duration-500">
             BLOGS
           </a>
         </li>

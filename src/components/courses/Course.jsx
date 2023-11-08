@@ -4,11 +4,11 @@ import CourseCard from './CourseCard'
 const Course = () => {
   return (
     <Fragment>
-      <div className=' container'>
+      <div className=' container-[1280px]'>
         <div className='text-red-500 text-center'>
           <h1 className='h-5'>All Courses</h1>
         </div>
-        <div className='mx-8 my-4 grid grid-cols-3 gap-4 justify-between '>
+        <div className='mx-8 my-4 grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4 justify-between '>
           <CourseCard/>
           <CourseCard/>
           <CourseCard/>

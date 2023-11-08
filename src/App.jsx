@@ -10,6 +10,7 @@ import GalleryPage from "./pages/gallery/GalleryPage";
 import BlogPage from "./pages/blogs/BlogPage";
 import FooterPage from "./pages/footer/FooterPage";
 import NotFoundPage from "./pages/notFound/NotFoundPage";
+import CourseSinglePage from "./pages/courses/CourseSinglePage";
 function App() {
   return (
     <BrowserRouter>
@@ -18,10 +19,11 @@ function App() {
           <Route index element={<BannarPage />} />
           <Route path="abouts" element={<AboutPage />} />
           <Route path="teacher" element={<TeacherPages />} />
-          <Route path="course" element={<CoursePage />} />
+          <Route path="/courses" element={<CoursePage />} />
+          <Route path="/course-single" element={<CourseSinglePage />} />
           <Route path="achievement" element={<AchievementPage />} />
           <Route path="gallery" element={<GalleryPage />} />
-          <Route path="blog" element={<BlogPage />} />
+          <Route path="blogs" element={<BlogPage />} />
           <Route path="footer" element={<FooterPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
