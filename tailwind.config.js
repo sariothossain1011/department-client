@@ -20,6 +20,8 @@ export default {
     extend: {
       colors: {
         'titel': '#002147',
+        'primary': '#004fe1',
+        'secondary': '#f5b016',
       },
       
     },
