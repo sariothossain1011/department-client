@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { AiOutlineMenu, AiOutlineMenuUnfold } from "react-icons/ai";
 import logo from "../../assets/logo.jpg"
+import { Link } from "react-router-dom";
 const Header = () => {
   const [open, setOpen] = useState(false);
   // console.log(open);
@@ -26,31 +27,45 @@ const Header = () => {
         }`}
       >
         <li className="mx-4 my-6 md:my-0 ">
-          <a href="#" className="text-xl hover:text-cyan-500 duration-500">
+          <Link to="/" className="text-xl hover:text-cyan-500 duration-500">
             HOME
-          </a>
+          </Link>
         </li>
         <li className="mx-4 my-6 md:my-0">
-          <a href="/course-single" target="_blank" className="text-xl hover:text-cyan-500 duration-500">
-            Courses
-          </a>
-        </li>
-        <li className="mx-4 my-6 md:my-0">
-          <a href="#" className="text-xl hover:text-cyan-500 duration-500">
+          <Link to="/about" className="text-xl hover:text-cyan-500 duration-500">
             ABOUT
-          </a>
+          </Link>
         </li>
         <li className="mx-4 my-6 md:my-0">
-          <a href="#" className="text-xl hover:text-cyan-500 duration-500">
-            CONTACT
-          </a>
+          <Link to="/teachers" className="text-xl hover:text-cyan-500 duration-500">
+            TEACHERS
+          </Link>
         </li>
         <li className="mx-4 my-6 md:my-0">
-          <a href="/blogs" className="text-xl hover:text-cyan-500 duration-500">
+          <Link to="/courses" className="text-xl hover:text-cyan-500 duration-500">
+            ALL COURSES
+          </Link>
+        </li>
+        <li className="mx-4 my-6 md:my-0">
+          <Link to="/achievements" className="text-xl hover:text-cyan-500 duration-500">
+            ACHIEVEMENTS
+          </Link>
+        </li>
+        <li className="mx-4 my-6 md:my-0">
+          <Link to="/gallery" className="text-xl hover:text-cyan-500 duration-500">
+            OUR GALLERY
+          </Link>
+        </li>
+        <li className="mx-4 my-6 md:my-0">
+          <Link to="/blogs" className="text-xl hover:text-cyan-500 duration-500">
             BLOGS
-          </a>
+          </Link>
         </li>
-
+        <li className="mx-4 my-6 md:my-0">
+          <Link to="/contact" className="text-xl hover:text-cyan-500 duration-500">
+            CONTACT
+          </Link>
+        </li>
         <button className="bg-cyan-400 text-white font-[Poppins] duration-500 px-6 py-2 mx-4 hover:bg-cyan-500 rounded ">
           Log in
         </button>
