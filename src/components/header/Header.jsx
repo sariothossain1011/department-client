@@ -3,7 +3,7 @@ import { AiOutlineMenu, AiOutlineMenuUnfold } from "react-icons/ai";
 import logo from "../../assets/logo.jpg"
 const Header = () => {
   const [open, setOpen] = useState(false);
-  console.log(open);
+  // console.log(open);
   const handleToggle = () => {
     setOpen(!open)
   }
