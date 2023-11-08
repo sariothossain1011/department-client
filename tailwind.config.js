@@ -4,6 +4,7 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  
   theme: {
     letterSpacing: {
       tightest: '-.18px',
@@ -15,9 +16,15 @@ export default {
       widest: '.1em',
       widest: '.25em',
     },
-    extend: {},
+
+    extend: {
+      colors: {
+        'titel': '#002147',
+      },
+      
+    },
   },
-  plugins: [],
+  plugins: [require("daisyui")],
 }
 
 
