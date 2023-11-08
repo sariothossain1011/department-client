@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { Fragment } from "react";
+import Blog from "../../components/blogs/Blog";
 
 const BlogPage = () => {
   return (
-    <div>BlogPage</div>
+    <Fragment>
+      <Blog/>
+    </Fragment>
   )
-}
+};
 
-export default BlogPage
+export default BlogPage;

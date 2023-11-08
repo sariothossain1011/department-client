@@ -1,8 +1,9 @@
 import React from 'react'
+import Teacher from '../../components/teachers/Teacher'
 
 const TeacherPages = () => {
   return (
-    <div>TeacherPages</div>
+    <Teacher/>
   )
 }
 

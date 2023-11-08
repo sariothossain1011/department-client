@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { Fragment } from 'react'
+import Course from '../../components/courses/Course'
 
 const CoursePage = () => {
   return (
-    <div>CoursePage</div>
+    <Fragment>
+      <Course/>
+    </Fragment>
   )
 }
 
