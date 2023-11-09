@@ -256,3 +256,9 @@ a.channel:hover {
     width: 80vw;
   }
 }
+
+
+/* single course video list css */
+.dropdown .cmt-dropdown-content {
+  position: relative !important;
+}
