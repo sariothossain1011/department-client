@@ -26,18 +26,18 @@ const Header = () => {
 
       <ul
         className={`md:flex md:items-center z-[-1] md:z-auto md:static absolute md:bg-white w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 top-[-400px] md:opacity-100 opacity-0  transition-all ease-in duration-500 ${
-          open && "top-[70px] opacity-100  text-white bg-[#2D72F3]"
+          open && "top-[70px] opacity-100  text-white bg-[#2D72F3] z-50 "
         }`}
       >
         <li className="mx-4 my-6 md:my-0 ">
-          <Link to="/" className="text-xl hover:text-cyan-500 duration-500">
+          <Link to="/" className="text-xl md:hover:text-[#256CF0] duration-500">
             HOME
           </Link>
         </li>
         <li className="mx-4 my-6 md:my-0">
           <Link
             to="/about"
-            className="text-xl hover:text-cyan-500 duration-500"
+            className="text-xl md:hover:text-[#256CF0] duration-500"
           >
             ABOUT
           </Link>
@@ -45,7 +45,7 @@ const Header = () => {
         <li className="mx-4 my-6 md:my-0">
           <Link
             to="/teachers"
-            className="text-xl hover:text-cyan-500 duration-500"
+            className="text-xl md:hover:text-[#256CF0] duration-500"
           >
             TEACHERS
           </Link>
@@ -53,7 +53,7 @@ const Header = () => {
         <li className="mx-4 my-6 md:my-0">
           <Link
             to="/courses"
-            className="text-xl hover:text-cyan-500 duration-500"
+            className="text-xl md:hover:text-[#256CF0] duration-500"
           >
             ALL COURSES
           </Link>
@@ -61,7 +61,7 @@ const Header = () => {
         <li className="mx-4 my-6 md:my-0">
           <Link
             to="/achievements"
-            className="text-xl hover:text-cyan-500 duration-500"
+            className="text-xl md:hover:text-[#256CF0] duration-500"
           >
             ACHIEVEMENTS
           </Link>
@@ -69,7 +69,7 @@ const Header = () => {
         <li className="mx-4 my-6 md:my-0">
           <Link
             to="/gallery"
-            className="text-xl hover:text-cyan-500 duration-500"
+            className="text-xl md:hover:text-[#256CF0] duration-500"
           >
             OUR GALLERY
           </Link>
@@ -77,7 +77,7 @@ const Header = () => {
         <li className="mx-4 my-6 md:my-0">
           <Link
             to="/blogs"
-            className="text-xl hover:text-cyan-500 duration-500"
+            className="text-xl md:hover:text-[#256CF0] duration-500"
           >
             BLOGS
           </Link>
@@ -85,14 +85,17 @@ const Header = () => {
         <li className="mx-4 my-6 md:my-0">
           <Link
             to="/contact"
-            className="text-xl hover:text-cyan-500 duration-500"
+            className="text-xl md:hover:text-[#256CF0] duration-500"
           >
             CONTACT
           </Link>
         </li>
-        <button className="bg-cyan-400 text-white font-[Poppins] duration-500 px-6 py-2 mx-4 hover:bg-cyan-500 rounded ">
+        <Link
+          to={"/login"}
+          className="bg-[#256CF0] text-xl text-white font-[Poppins] duration-500 px-6 py-2 mx-4 hover:bg-[#256CF0] rounded "
+        >
           Log in
-        </button>
+        </Link>
         <h2 className=""></h2>
       </ul>
     </nav>
