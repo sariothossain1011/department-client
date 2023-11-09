@@ -10,7 +10,7 @@ const CourseCard = () => {
         <div className="card-body indicator ">
         <span class="indicator-item indicator-start ms-20 badge badge-secondary p-3">First Semester</span>
           <div className="card-title ">
-            <a href="/course-single" target="_blank" ><h1>First semester all couses here learn more</h1></a>
+            <a href="/course-single"><h1>First semester all couses here learn more</h1></a>
           </div>
           <div className="card-actions justify-between">
             <div class="rating">
