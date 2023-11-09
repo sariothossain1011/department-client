@@ -13,6 +13,7 @@ import CourseSinglePage from "./pages/courses/CourseSinglePage";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 import ContactPage from "./pages/contact/ContactPage";
+import SpecificTeacher from "./components/teachers/SpecificTeacher";
 function App() {
   return (
     <BrowserRouter>
@@ -28,6 +29,7 @@ function App() {
         <Route path="/gallery" element={<GalleryPage />} />
         <Route path="/blogs" element={<BlogPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/specificTeacher/:id" element={<SpecificTeacher></SpecificTeacher>} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <Footer/>
