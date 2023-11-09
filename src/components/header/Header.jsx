@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 const Header = () => {
   const [open, setOpen] = useState(false);
   const handleToggle = () => {
-    console.log("cliecld");
     setOpen(!open);
   };
   console.log(open);
@@ -91,6 +90,14 @@ const Header = () => {
             className="text-[14px] font-bold md:hover:text-[#256CF0] duration-500"
           >
             CONTACT
+          </Link>
+        </li> 
+        <li className="mx-4 my-6 md:my-0">
+          <Link
+            to="/admin"
+            className="text-[14px] font-bold md:hover:text-[#256CF0] duration-500"
+          >
+           Dashbord
           </Link>
         </li>
         <Link

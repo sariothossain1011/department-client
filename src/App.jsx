@@ -14,13 +14,15 @@ import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 import ContactPage from "./pages/contact/ContactPage";
 import Login from "./pages/Auntentication/Login";
+import Dashboard from "./pages/Admin/Dashbord/Dashboard";
+import Admin from "./pages/Admin/Admin";
 function App() {
   return (
     <BrowserRouter>
-     <Header />
+      <Header />
       <Routes>
         <Route index path="/" element={<HomePage />} />
-        <Route  path="/about" element={<AboutPage />} />
+        <Route path="/about" element={<AboutPage />} />
         <Route path="teachers" element={<TeacherPages />} />
         <Route path="/courses" element={<CoursePage />} />
         <Route path="/course-single" element={<CourseSinglePage />} />
@@ -30,9 +32,12 @@ function App() {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/admin" element={<Dashboard />}>
+          <Route index  element={<Admin />} />
+        </Route>
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
-      <Footer/>
+      <Footer />
     </BrowserRouter>
   );
 }
