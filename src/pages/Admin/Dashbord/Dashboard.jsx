@@ -21,7 +21,7 @@ function Dashboard() {
             aria-label="close sidebar"
             className="drawer-overlay"
           ></label>
-          <ul className="menu p-4 w-64 min-h-full sidebar">
+          <ul className="menu p-4 w-64 min-h-full sidebar ">
             {/* Sidebar content here */}
             <li className="mx-4 my-3">
               <Link
