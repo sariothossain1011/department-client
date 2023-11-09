@@ -4,8 +4,31 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  
   theme: {
-    extend: {},
+    letterSpacing: {
+      tightest: '-.18px',
+      tighter: '-.15px',
+      tight: '-.025em',
+      normal: '0',
+      wide: '.025em',
+      wider: '.05em',
+      widest: '.1em',
+      widest: '.25em',
+    },
+
+    extend: {
+      colors: {
+        'titel': '#002147',
+        'primary': '#004fe1',
+        'secondary': '#f5b016',
+      },
+      backgroundImage: {
+        'blog-banner': "url(https://htmldemo.net/edubuzz/edubuzz/img/banner/8.jpg)",
+      
+      }
+      
+    },
   },
   plugins: [require("daisyui")],
 }

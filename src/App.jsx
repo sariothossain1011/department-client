@@ -3,29 +3,34 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/home/HomePage";
 import BannarPage from "./pages/bannar/BannarPage";
 import AboutPage from "./pages/about/AboutPage";
-import TeacherPages from "./pages/teachers/TeacherPages";
+import TeacherPages from "./pages/teachers/TeacherPage";
 import CoursePage from "./pages/courses/CoursePage";
 import AchievementPage from "./pages/achievement/AchievementPage";
 import GalleryPage from "./pages/gallery/GalleryPage";
 import BlogPage from "./pages/blogs/BlogPage";
-import FooterPage from "./pages/footer/FooterPage";
 import NotFoundPage from "./pages/notFound/NotFoundPage";
+import CourseSinglePage from "./pages/courses/CourseSinglePage";
+import Header from "./components/header/Header";
+import Footer from "./components/footer/Footer";
+import ContactPage from "./pages/contact/ContactPage";
 function App() {
   return (
     <BrowserRouter>
+     <Header />
       <Routes>
-        <Route path="/" element={<HomePage />}>
-          <Route index element={<BannarPage />} />
-          <Route path="abouts" element={<AboutPage />} />
-          <Route path="teacher" element={<TeacherPages />} />
-          <Route path="course" element={<CoursePage />} />
-          <Route path="achievement" element={<AchievementPage />} />
-          <Route path="gallery" element={<GalleryPage />} />
-          <Route path="blog" element={<BlogPage />} />
-          <Route path="footer" element={<FooterPage />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Route>
+       
+        <Route index path="/" element={<HomePage />} />
+        <Route  path="/about" element={<AboutPage />} />
+        <Route path="teachers" element={<TeacherPages />} />
+        <Route path="/courses" element={<CoursePage />} />
+        <Route path="/course-single" element={<CourseSinglePage />} />
+        <Route path="/achievements" element={<AchievementPage />} />
+        <Route path="/gallery" element={<GalleryPage />} />
+        <Route path="/blogs" element={<BlogPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
+      <Footer/>
     </BrowserRouter>
   );
 }

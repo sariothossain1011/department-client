@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { Fragment } from 'react'
+import Achievement from '../../components/achievement/Achievement'
 
 const AchievementPage = () => {
   return (
-    <div>AchievementPage</div>
+    <Fragment>
+      <Achievement/>
+    </Fragment>
   )
 }
 

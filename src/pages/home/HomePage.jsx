@@ -12,7 +12,6 @@ import Footer from "../../components/footer/Footer";
 const HomePage = () => {
   return (
     <Fragment>
-      <Header />
       <Bannar />
       <About />
       <Teacher />
@@ -20,7 +19,6 @@ const HomePage = () => {
       <Achievement />
       <Gallery />
       <Blog />
-      <Footer />
     </Fragment>
   );
 };
