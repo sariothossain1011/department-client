@@ -358,7 +358,9 @@ form.sign-in-form {
   form {
     padding: 0 1.5rem;
   }
-
+.signin-signup{
+    top: 75%;
+}
   .image {
     display: none;
   }

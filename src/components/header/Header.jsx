@@ -30,14 +30,17 @@ const Header = () => {
         }`}
       >
         <li className="mx-4 my-6 md:my-0 ">
-          <Link to="/" className="text-xl md:hover:text-[#256CF0] duration-500">
+          <Link
+            to="/"
+            className="text-[14px] font-bold md:hover:text-[#256CF0] duration-500"
+          >
             HOME
           </Link>
         </li>
         <li className="mx-4 my-6 md:my-0">
           <Link
             to="/about"
-            className="text-xl md:hover:text-[#256CF0] duration-500"
+            className="text-[14px] font-bold md:hover:text-[#256CF0] duration-500"
           >
             ABOUT
           </Link>
@@ -45,7 +48,7 @@ const Header = () => {
         <li className="mx-4 my-6 md:my-0">
           <Link
             to="/teachers"
-            className="text-xl md:hover:text-[#256CF0] duration-500"
+            className="text-[14px] font-bold md:hover:text-[#256CF0] duration-500"
           >
             TEACHERS
           </Link>
@@ -53,7 +56,7 @@ const Header = () => {
         <li className="mx-4 my-6 md:my-0">
           <Link
             to="/courses"
-            className="text-xl md:hover:text-[#256CF0] duration-500"
+            className="text-[14px] font-bold md:hover:text-[#256CF0] duration-500"
           >
             ALL COURSES
           </Link>
@@ -61,7 +64,7 @@ const Header = () => {
         <li className="mx-4 my-6 md:my-0">
           <Link
             to="/achievements"
-            className="text-xl md:hover:text-[#256CF0] duration-500"
+            className="text-[14px] font-bold md:hover:text-[#256CF0] duration-500"
           >
             ACHIEVEMENTS
           </Link>
@@ -69,7 +72,7 @@ const Header = () => {
         <li className="mx-4 my-6 md:my-0">
           <Link
             to="/gallery"
-            className="text-xl md:hover:text-[#256CF0] duration-500"
+            className="text-[14px] font-bold md:hover:text-[#256CF0] duration-500"
           >
             OUR GALLERY
           </Link>
@@ -77,7 +80,7 @@ const Header = () => {
         <li className="mx-4 my-6 md:my-0">
           <Link
             to="/blogs"
-            className="text-xl md:hover:text-[#256CF0] duration-500"
+            className="text-[14px] font-bold md:hover:text-[#256CF0] duration-500"
           >
             BLOGS
           </Link>
@@ -85,14 +88,14 @@ const Header = () => {
         <li className="mx-4 my-6 md:my-0">
           <Link
             to="/contact"
-            className="text-xl md:hover:text-[#256CF0] duration-500"
+            className="text-[14px] font-bold md:hover:text-[#256CF0] duration-500"
           >
             CONTACT
           </Link>
         </li>
         <Link
           to={"/login"}
-          className="bg-[#256CF0] text-xl text-white font-[Poppins] duration-500 px-6 py-2 mx-4 hover:bg-[#256CF0] rounded "
+          className="bg-[#256CF0] text-[14px] font-bold text-white font-[Poppins] duration-500 px-6 py-2 mx-4 hover:bg-[#256CF0] rounded "
         >
           Log in
         </Link>
