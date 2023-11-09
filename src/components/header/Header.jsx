@@ -1,14 +1,14 @@
 import { useState } from "react";
-import {  AiOutlineMenuUnfold } from "react-icons/ai";
-import logo from "../../assets/logo.jpg"
+import { AiOutlineMenuUnfold } from "react-icons/ai";
+import logo from "../../assets/logo.jpg";
 import { Link } from "react-router-dom";
 const Header = () => {
   const [open, setOpen] = useState(false);
   const handleToggle = () => {
     console.log("cliecld");
-    setOpen(!open)
-  }
- console.log(open);
+    setOpen(!open);
+  };
+  console.log(open);
   return (
     <nav className="p-5 bg-white shadow md:flex md:items-center md:justify-between">
       <div className="flex justify-between items-center ">

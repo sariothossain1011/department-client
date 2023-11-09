@@ -20,7 +20,13 @@ export default {
     extend: {
       colors: {
         'titel': '#002147',
+        'primary': '#004fe1',
+        'secondary': '#f5b016',
       },
+      backgroundImage: {
+        'blog-banner': "url(https://htmldemo.net/edubuzz/edubuzz/img/banner/8.jpg)",
+      
+      }
       
     },
   },
