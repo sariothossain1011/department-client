@@ -41,7 +41,7 @@ function Dashboard() {
             </li>
             <li className="mx-4 my-3">
               <Link
-                to="/allstudent"
+                to="users"
                 className="text-[16px] font-bold md:hover:text-[#256CF0] duration-500"
               >
                 All Users
@@ -49,13 +49,12 @@ function Dashboard() {
             </li>
             <li className="mx-4 my-3">
               <Link
-                to="/allstudent"
+                to="addCourse"
                 className="text-[16px] font-bold md:hover:text-[#256CF0] duration-500"
               >
                 Add Course
               </Link>
             </li>
-         
           </ul>
         </div>
       </div>
