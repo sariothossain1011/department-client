@@ -19,6 +19,8 @@ import Admin from "./pages/Admin/Admin";
 import EditProfile from "./pages/Auntentication/EditProfile";
 import Users from "./pages/Admin/Users";
 import AddCourse from "./pages/Admin/AddCourse";
+import Blog from "./pages/Admin/Blog/Blog";
+import BlogPost from "./pages/Admin/Blog/Article";
 function App() {
   return (
     <BrowserRouter>
@@ -36,10 +38,11 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/login" element={<Login />} />
         <Route path="/admin" element={<Dashboard />}>
-          <Route index  element={<Admin />} />
-          <Route path="editProfile"  element={<EditProfile />} />
-          <Route path="users"  element={<Users />} />
-          <Route path="addCourse"  element={<AddCourse />} />
+          <Route index element={<Admin />} />
+          <Route path="editProfile" element={<EditProfile />} />
+          <Route path="users" element={<Users />} />
+          <Route path="addCourse" element={<AddCourse />} />
+          <Route path="addBlog" element={<BlogPost />} />
         </Route>
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
