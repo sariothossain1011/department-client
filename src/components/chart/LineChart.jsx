@@ -40,12 +40,32 @@ const Charts = () => {
       investment: 600000,
       sell: 601,
       revenue: 50900,
+    },  {
+      month: "Aug 17",
+      investment: 600000,
+      sell: 601,
+      revenue: 50900,
+    },  {
+      month: "Aug 17",
+      investment: 600000,
+      sell: 601,
+      revenue: 50900,
+    },  {
+      month: "Aug 17",
+      investment: 600000,
+      sell: 601,
+      revenue: 50900,
+    },  {
+      month: "Aug 17",
+      investment: 600000,
+      sell: 601,
+      revenue: 50900,
     },
   ];
 
   return (
     <div className=" rounded-3xl -mt-10 pt-7 px-4 font-mono">
-      <LineChart width={320} height={253} data={data}>
+      <LineChart width={420} height={253} data={data}>
         <Line stroke="#000" dataKey={"investment"} activeDot={{ r: 8 }}></Line>
         <Line stroke="#90bce5" dataKey={"revenue"} activeDot={{ r: 8 }}></Line>
         <Line stroke="#000" dataKey={"sell"}></Line>
