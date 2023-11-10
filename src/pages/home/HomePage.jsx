@@ -7,7 +7,7 @@ import Course from "../../components/courses/Course";
 import Achievement from "../../components/achievement/Achievement";
 import Gallery from "../../components/gallery/Gallery";
 import Blog from "../../components/blogs/Blog";
-import Footer from "../../components/footer/Footer";
+
 
 const HomePage = () => {
   return (

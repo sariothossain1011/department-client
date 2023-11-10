@@ -16,6 +16,7 @@ import ContactPage from "./pages/contact/ContactPage";
 import Login from "./pages/Auntentication/Login";
 import Dashboard from "./pages/Admin/Dashbord/Dashboard";
 import Admin from "./pages/Admin/Admin";
+import EditProfile from "./pages/Auntentication/EditProfile";
 function App() {
   return (
     <BrowserRouter>
@@ -34,6 +35,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/admin" element={<Dashboard />}>
           <Route index  element={<Admin />} />
+          <Route path="editProfile"  element={<EditProfile />} />
         </Route>
         <Route path="*" element={<NotFoundPage />} />
       </Routes>

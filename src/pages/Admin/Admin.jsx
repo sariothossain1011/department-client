@@ -1,9 +1,33 @@
-import React from 'react'
+import React from "react";
+import Example from "../../components/chart/LineChart";
+import TopCard from "../../components/admin/TopCard";
+import BarChart1 from "../../components/chart/BarChart";
 
 function Admin() {
   return (
-    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos fugiat eligendi, consectetur excepturi explicabo voluptatibus consequuntur dolor pariatur maxime tempora qui quos sint doloremque quis dicta recusandae consequatur veniam repellat. Quam numquam obcaecati beatae perferendis harum minus ducimus laboriosam ad! Dolorum qui exercitationem illo dolor velit eligendi veniam totam molestias magnam obcaecati, iste delectus distinctio sed architecto aperiam nemo a nam incidunt, laboriosam vero consequatur accusantium, et ipsa. Ea, est esse. Repellendus quam hic sapiente blanditiis eligendi vitae? Magnam velit quo, ipsa inventore delectus sint perferendis unde nobis laborum nam deserunt, autem alias, numquam eos eligendi! Optio quos debitis laboriosam.</div>
-  )
+    <div className="my-10 mr-4 ">
+      <div>
+        <h2 className="text-xl font-bold text-start">Welcome Admin!</h2>
+        <div className="my-5">
+          <TopCard />
+        </div>
+      </div>
+      <div className="mt-10 md:flex gap-3  justify-between ">
+        <div className="border-1 border-red-500 bg-white p-4 rounded-xl shadow-lg">
+          <h2 className="text-xl font-bold text-center mb-10 uppercase text-gray-500 ">
+            Students
+          </h2>
+          <BarChart1 />
+        </div>
+        <div className="border-1 border-red-500 bg-white p-4 rounded-xl shadow-lg">
+          <h2 className="text-xl font-bold text-center mb-10 uppercase text-gray-500 ">
+            Teachers
+          </h2>
+          <BarChart1 />
+        </div>
+      </div>
+    </div>
+  );
 }
 
-export default Admin
+export default Admin;
