@@ -54,6 +54,14 @@ function Dashboard() {
               >
                 Add Course
               </Link>
+            </li> 
+            <li className="mx-4 my-3">
+              <Link
+                to="addBlog"
+                className="text-[16px] font-bold md:hover:text-[#256CF0] duration-500"
+              >
+                Write Blog
+              </Link>
             </li>
           </ul>
         </div>
