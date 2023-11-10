@@ -9,6 +9,10 @@
   --btn-blue:linear-gradient(230deg,#004fe1 0%,#3478f6 100%);
 
 }
+*{
+  margin: 0;
+  padding: 0;
+}
 .sidebar{
   background: var(--btn-blue) !important;
   color: #fff;

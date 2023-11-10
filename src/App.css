@@ -1,1 +1,42 @@
+.custom-footer {
+  display: grid;
+  grid-auto-flow: row;
+  gap: 1opx;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+}
 
+@media screen and (max-width: 1075px) {
+  .custom-footer {
+    justify-content: space-between;
+    gap: 10px;
+    grid-template-columns: 2fr 1fr;
+  }
+}
+@media screen and (max-width: 645px) {
+  .custom-btn {
+    width: 100px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .custom-footer {
+    grid-template-columns: repeat(3fr 1fr);
+  }
+}
+@media screen and (max-width: 420px) {
+  .custom-btn {
+    width: 80px;
+  }
+   .custom-footer{
+    grid-template-columns: 3fr 1fr;
+  
+   
+  }
+}
+@media screen and (max-width: 364px) {
+
+   .custom-footer{
+    grid-template-columns: 1fr;
+
+   
+  }
+}
