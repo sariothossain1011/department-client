@@ -1,15 +1,4 @@
-import React from 'react'
-import Teacher from '../../components/teachers/Teacher'
 
-const TeacherPages = () => {
-  return (
-   <>
-    <Teacher/>
-   </>
-  )
-}
-
-export default TeacherPages
 import React from 'react'
 import OurTeacher from '../../components/teacher/OurTeacher'
 import {IoIosArrowForward} from "react-icons/io"
