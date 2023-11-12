@@ -112,7 +112,7 @@ const EditProfile = () => {
                 </div>
               </div>
             </div>
-            <div className="col-xl-8 order-xl-1">
+            <div className="col-xl-8 order-xl-1 mb-4">
               <div className="card shadow">
                 <div className="card-header  border-0">
                   <div className="row align-items-center">
