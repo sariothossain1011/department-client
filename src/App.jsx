@@ -13,14 +13,7 @@ import CourseSinglePage from "./pages/courses/CourseSinglePage";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 import ContactPage from "./pages/contact/ContactPage";
-import Login from "./pages/Auntentication/Login";
-import Dashboard from "./pages/Admin/Dashbord/Dashboard";
-import Admin from "./pages/Admin/Admin";
-import EditProfile from "./pages/Auntentication/EditProfile";
-import Users from "./pages/Admin/Users";
-import AddCourse from "./pages/Admin/AddCourse";
-import Blog from "./pages/Admin/Blog/Blog";
-import BlogPost from "./pages/Admin/Blog/Article";
+import SpecificTeacher from "./components/teachers/SpecificTeacher";
 function App() {
   return (
     <BrowserRouter>
@@ -29,21 +22,13 @@ function App() {
         <Route index path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="teachers" element={<TeacherPages />} />
+        <Route path="specificTeacher/:id" element={<SpecificTeacher></SpecificTeacher>} />
         <Route path="/courses" element={<CoursePage />} />
         <Route path="/course-single" element={<CourseSinglePage />} />
         <Route path="/achievements" element={<AchievementPage />} />
         <Route path="/gallery" element={<GalleryPage />} />
         <Route path="/blogs" element={<BlogPage />} />
         <Route path="/contact" element={<ContactPage />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/admin" element={<Dashboard />}>
-          <Route index element={<Admin />} />
-          <Route path="editProfile" element={<EditProfile />} />
-          <Route path="users" element={<Users />} />
-          <Route path="addCourse" element={<AddCourse />} />
-          <Route path="addBlog" element={<BlogPost />} />
-        </Route>
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <Footer />

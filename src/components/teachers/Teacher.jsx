@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import SingleTeacherCard from './SingleTeacherCard'
 
+
 const Teacher = () => {
 
   const fakeTeachers = [
@@ -19,6 +20,8 @@ const Teacher = () => {
   // Stats
   const [slice, setSlice] = useState(false);
   const [sliceJob, setSliceJob] = useState(fakeTeachers);
+  console.log(fakeTeachers);
+  
 
   useEffect(() => {
 
@@ -35,7 +38,7 @@ const Teacher = () => {
   return (
     <div className='w-full'>
       <div className='border-b-4 border-[#F7A510] w-fit p-4 text-center font-bold text-5xl mx-auto'>ALL-TEACHER'S</div>
-      <div className='grid grid-cols-3 my-5 gap-y-10'>
+      <div className='grid md:grid-cols-2 lg:grid-cols-3 my-5 gap-5 px-8'>
         {sliceJob.map(singleTeacher => <SingleTeacherCard key={singleTeacher.id} singleTeacher={singleTeacher}></SingleTeacherCard>)}
       </div>
       <div className='text-center mt-10'>
@@ -45,4 +48,4 @@ const Teacher = () => {
   )
 }
 
-export default Teacher
+export default Teacher;
