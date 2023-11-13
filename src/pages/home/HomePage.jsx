@@ -7,6 +7,7 @@ import Course from "../../components/courses/Course";
 import Achievement from "../../components/achievement/Achievement";
 import Gallery from "../../components/gallery/Gallery";
 import Blog from "../../components/blogs/Blog";
+import OurTeacher from "../../components/teacher/OurTeacher";
 
 
 const HomePage = () => {
@@ -14,7 +15,7 @@ const HomePage = () => {
     <Fragment>
       <Bannar />
       <About />
-      <Teacher />
+      <OurTeacher/>
       <Course />
       <Achievement />
       <Gallery />
