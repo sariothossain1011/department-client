@@ -84,6 +84,7 @@ export default function BlogPost() {
                 "autolink",
                 "lists",
                 "link",
+                "codesample",
                 "image",
                 "charmap",
                 "preview",
@@ -95,17 +96,29 @@ export default function BlogPost() {
                 "insertdatetime",
                 "media",
                 "table",
-                "code",
+
                 "help",
                 "wordcount",
                 "autosave",
                 "emoticons",
               ],
+              codesample_languages: [
+                { text: "HTML/XML", value: "markup" },
+                { text: "JavaScript", value: "javascript" },
+                { text: "CSS", value: "css" },
+                { text: "PHP", value: "php" },
+                { text: "Ruby", value: "ruby" },
+                { text: "Python", value: "python" },
+                { text: "Java", value: "java" },
+                { text: "C", value: "c" },
+                { text: "C#", value: "csharp" },
+                { text: "C++", value: "cpp" },
+              ],
               toolbar:
                 "undo redo | blocks | " +
                 "bold italic forecolor | alignleft aligncenter " +
                 "alignright alignjustify | link image media | bullist numlist outdent indent | " +
-                "removeformat restoredraft preview code emoticons",
+                "removeformat restoredraft preview code emoticons codesample",
               content_style:
                 "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
               autosave_ask_before_unload: false,

@@ -52,9 +52,9 @@ const Contact = () => {
       <h1
         data-aos="flip-down"
         data-aos-duration="3000"
-        className="text-3xl text-center mt-16 font-bold text-secondary uppercase"
+        className="text-3xl text-center mt-16 font-bold text-[#f5b016] uppercase"
       >
-        Contact <span className="text-orange-600">Us</span>
+        Contact <span className="text-[#004fe1]">Us</span>
       </h1>
       {/* Contact Form */}
       <div className="hero min-h-screen min-w-screen  px-2 md:px-0  mx-auto   my-16">
@@ -76,7 +76,7 @@ const Contact = () => {
               </p>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text text-secondary">Full Name*</span>
+                  <span className="label-text text-[#004fe1]">Full Name*</span>
                 </label>
                 <input
                   type="text"
@@ -100,7 +100,7 @@ const Contact = () => {
               </p>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text text-secondary">Email*</span>
+                  <span className="label-text text-[#004fe1]">Email*</span>
                 </label>
                 <input
                   type="email"
@@ -124,21 +124,7 @@ const Contact = () => {
                   <span>{errors.date.message}</span>
                 )}
               </p>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text text-secondary">Event Date*</span>
-                </label>
-                <input
-                  type="date"
-                  className="input input-bordered input-primary"
-                  {...register("date", {
-                    required: {
-                      value: true,
-                      message: "Date is required*",
-                    },
-                  })}
-                />
-              </div>
+
               <p className="text-left text-red-500">
                 {errors.phone?.type === "required" && (
                   <span>{errors.phone.message}</span>
@@ -146,7 +132,7 @@ const Contact = () => {
               </p>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text text-secondary">
+                  <span className="label-text text-[#004fe1]">
                     Phone Number*
                   </span>
                 </label>
@@ -165,7 +151,7 @@ const Contact = () => {
 
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text text-secondary">
+                  <span className="label-text text-[#004fe1]">
                     Your Message*
                   </span>
                 </label>
