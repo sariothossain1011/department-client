@@ -30,6 +30,10 @@ function App() {
         <Route path="/blogs" element={<BlogPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="*" element={<NotFoundPage />} />
+        
+
+        {/* Login and singUp route's */}
+       
       </Routes>
       <Footer />
     </BrowserRouter>
