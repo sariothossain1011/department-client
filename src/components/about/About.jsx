@@ -6,7 +6,7 @@ const About = () => {
       <h2 className="text-4xl text-center font-bold capitalize my-10">
         About Our Institute
       </h2>
-      <div className="flex justify-between gap-10 items-center">
+      <div className="md:flex justify-between gap-10 items-center">
    
           <img src={about} alt="Album" className="h-[50vh] rounded-lg" />
     

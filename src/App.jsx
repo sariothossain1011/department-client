@@ -21,7 +21,15 @@ import Users from "./pages/Admin/Users";
 import AddCourse from "./pages/Admin/AddCourse";
 import BlogPost from "./pages/Admin/Blog/Article";
 import Login from "./pages/Auntentication/Login";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
+import Show from "./components/blogs/Show";
+import SinglePage from "./components/blogs/SinglePage";
 function App() {
+    useEffect(() => {
+      AOS.init();
+    }, []);
   return (
     <BrowserRouter>
       <Header />
@@ -40,7 +48,8 @@ function App() {
         <Route path="/blogs" element={<BlogPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/login" element={<Login />} />
-
+        <Route path="/allBlogs" element={<Show />} />
+        <Route path="/article/:id" element={<SinglePage />}></Route>
         <Route path="/admin" element={<Dashboard />}>
           <Route index element={<Admin />} />
           <Route path="editProfile" element={<EditProfile />} />
