@@ -58,6 +58,10 @@ function App() {
           <Route path="addBlog" element={<BlogPost />} />
         </Route>
         <Route path="*" element={<NotFoundPage />} />
+        
+
+        {/* Login and singUp route's */}
+       
       </Routes>
       <Footer />
     </BrowserRouter>
