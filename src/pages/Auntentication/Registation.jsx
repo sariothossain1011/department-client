@@ -1,6 +1,13 @@
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { useLocation, useNavigate } from "react-router-dom";
+import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import app from "../../firebase/firebase.config";
+
+
+const auth = getAuth(app)
+
+
 function Registation() {
   const navigate = useNavigate();
   const location = useLocation();
@@ -30,10 +37,14 @@ function Registation() {
     const email = data?.email;
     const password = data?.password;
     const confirm = data?.confirmPassword;
+
+    console.log(name, email, password, confirm);
+
     if (password === confirm) {
-      await createUserWithEmailAndPassword(email, password);
+      createUserWithEmailAndPassword(auth, email, password);
       await updateProfile({ displayName: name });
     }
+
     reset();
   };
   return (
