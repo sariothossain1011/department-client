@@ -20,18 +20,8 @@ function Registation() {
     watch,
     formState: { errors },
   } = useForm();
-  // let errorMessage;
-  // if (error || updateError) {
-  //   return <>{toast.error(error?.message || updateError?.message)}</>;
-  // }
-  // if (loading || updating) {
-  //   return <div className="h-40 mt-10">{<Loading />}</div>;
-  // }
 
-  // if (token) {
-  //   navigate(from, { replace: true });
-  //   return <>{toast.success("Thank You! Registation Successfull")}</>;
-  // }
+  
   const onSubmit = async (data) => {
     const name = data?.name;
     const email = data?.email;
