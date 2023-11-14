@@ -6,8 +6,14 @@ import Registation from "./Registation";
 import { toast } from "react-toastify";
 
 import { useLocation, useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../provider/AuthProvider";
 
 function Login() {
+
+  const { logIn } = useContext(AuthContext);
+
+
   let navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/home";
@@ -29,6 +35,14 @@ function Login() {
   const onSubmit = async (data) => {
     const email = data.email;
     const password = data.password;
+
+    logIn(email, password)
+      .then(result => {
+        const loggedInUser = result.user;
+        alert('login successful');
+        reset()
+      })
+      .catch(error => console.log(error.message))
   };
 
   const resetPassword = async () => {

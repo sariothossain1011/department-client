@@ -1,8 +1,14 @@
+import { useContext } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider";
 
 
 function Registation() {
+
+  const {createNewUser} = useContext(AuthContext)
+
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/home";
@@ -25,7 +31,14 @@ function Registation() {
     console.log(name, email, password, confirm);
 
     if (password === confirm) {
-     
+      createNewUser(email, password)
+      .then(result => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+      })
+      .catch(error =>{
+        console.log(error.message);
+      })
     }
 
     reset();
