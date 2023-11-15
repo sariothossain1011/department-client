@@ -1,6 +1,8 @@
 import React from "react";
-import {BiLogoFacebook,BiLogoInstagram} from "react-icons/bi"
+import {BiLogoFacebook,BiLogoInstagram,} from "react-icons/bi"
 import {RiTwitterXFill} from "react-icons/ri"
+import {BsArrowRight} from "react-icons/bs"
+import { Link } from "react-router-dom";
 const OurTeacher = () => {
   return (
     <div className="container mx-auto">
@@ -12,15 +14,20 @@ const OurTeacher = () => {
   <figure><img className=" rounded-full w-40 h-40" src="https://htmldemo.zcubethemes.com/qeducato/img/team/team09.png" alt="Shoes" /></figure>
   <div className="card-body">
     <h2 className="card-title text-titel justify-center hover:text-secondary duration-500">Howard Holmes</h2>
+   
     <h3 className=" text-center text-secondary ">CEO & Founder</h3>
+   
    
  <div className=" flex justify-center gap-5 py-5">
 
-<BiLogoFacebook className=" w-10 h-10 rounded-full border hover:text-white hover:bg-secondary duration-500 "/>
-<BiLogoInstagram className=" w-10 h-10 rounded-full border hover:text-white hover:bg-secondary duration-500 "/>
-<RiTwitterXFill className=" w-10 h-10 rounded-full border hover:text-white hover:bg-secondary duration-500 "/>
+<BiLogoFacebook className=" w-10 h-10 p-2 rounded-full border hover:text-white hover:bg-secondary duration-500 "/>
+<BiLogoInstagram className=" w-10 h-10  p-2  rounded-full border hover:text-white hover:bg-secondary duration-500 "/>
+<RiTwitterXFill className=" w-10 h-10  p-2 rounded-full border hover:text-white hover:bg-secondary duration-500 "/>
 
  </div>
+ <Link to="/details-teacher">
+ <p className=" flex justify-end text-secondary hover:text-primary duration-500 ">Read More <BsArrowRight className=" mt-1 pl-1"/></p>
+ </Link>
   </div>
 </div>
 <div className="card w-80 bg-base-100 shadow-xl">

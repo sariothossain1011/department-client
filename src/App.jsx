@@ -21,11 +21,15 @@ import Users from "./pages/Admin/Users";
 import AddCourse from "./pages/Admin/AddCourse";
 import BlogPost from "./pages/Admin/Blog/Article";
 import Login from "./pages/Auntentication/Login";
+<<<<<<< Updated upstream
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
 import Show from "./components/blogs/Show";
 import SinglePage from "./components/blogs/SinglePage";
+=======
+import DetailsTeacher from "./components/teacher/DetailsTeacher";
+>>>>>>> Stashed changes
 function App() {
     useEffect(() => {
       AOS.init();
@@ -37,6 +41,7 @@ function App() {
         <Route index path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="teachers" element={<TeacherPages />} />
+        <Route path="details-teacher" element={<DetailsTeacher />} />
         <Route
           path="specificTeacher/:id"
           element={<SpecificTeacher></SpecificTeacher>}
@@ -56,6 +61,7 @@ function App() {
           <Route path="users" element={<Users />} />
           <Route path="addCourse" element={<AddCourse />} />
           <Route path="addBlog" element={<BlogPost />} />
+          
         </Route>
         <Route path="*" element={<NotFoundPage />} />
         
