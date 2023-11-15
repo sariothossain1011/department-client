@@ -8,16 +8,9 @@ const About = () => {
       <h2 className="text-4xl text-center font-bold capitalize py-10">
         About Our Institute
       </h2>
-<<<<<<< Updated upstream
-      <div className="md:flex justify-between gap-10 items-center">
-   
-          <img src={about} alt="Album" className="h-[50vh] rounded-lg" />
-    
-=======
       <div className="flex justify-between gap-10 items-center">
         <img src={about} alt="Album" className="h-[50vh] rounded-lg bg-secondary p-3" />
 
->>>>>>> Stashed changes
         <div className="flex flex-col">
           <h2 className="text-3xl justify-between">
             Cox's Bazar Polytechnic Institute.
