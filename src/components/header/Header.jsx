@@ -25,7 +25,7 @@ const Header = () => {
 
       <ul
         className={`md:flex md:items-center z-[-1] md:z-auto md:static absolute md:bg-white w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 top-[-400px] md:opacity-100 opacity-0  transition-all ease-in duration-500 ${
-          open && "top-[70px] opacity-100  text-white bg-[#2D72F3] z-50 "
+          open && "top-[70px] opacity-100  text-white bg-[#2D72F3] z-auto"
         }`}
       >
         <li className="mx-4 my-6 md:my-0 ">
@@ -60,14 +60,7 @@ const Header = () => {
             ALL COURSES
           </Link>
         </li>
-        <li className="mx-4 my-6 md:my-0">
-          <Link
-            to="/achievements"
-            className="text-[14px] font-bold md:hover:text-[#256CF0] duration-500"
-          >
-            ACHIEVEMENTS
-          </Link>
-        </li>
+     
         <li className="mx-4 my-6 md:my-0">
           <Link
             to="/gallery"
@@ -78,7 +71,7 @@ const Header = () => {
         </li>
         <li className="mx-4 my-6 md:my-0">
           <Link
-            to="/blogs"
+            to="/allBlogs"
             className="text-[14px] font-bold md:hover:text-[#256CF0] duration-500"
           >
             BLOGS
