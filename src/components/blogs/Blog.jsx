@@ -1,233 +1,31 @@
 import React from "react";
-import { BiCalendarCheck } from "react-icons/bi";
-import { FiEye } from "react-icons/fi";
-import { HiOutlineChatAlt2 } from "react-icons/hi";
+import Show from "./Show";
+import { Link } from "react-router-dom";
+import { IoIosArrowForward } from "react-icons/io";
+
 const Blog = () => {
   return (
-    <div className=" container mx-auto">
-      <div className=" py-12 flex justify-center">
-        <h1 className=" text-titel text-xl mb-3 leading-8 font-bold">LATEST BLOGS</h1>
-      </div>
+    <div>
+      <div className="bg-blog-banner bg-center ">
+        <div className="container-mx-auto bg-black bg-opacity-30">
+          <h1
+            data-aos="flip-down"
+            data-aos-duration="3000"
+            className="text-3xl flex justify-center text-center  font-bold mb-5 pt-36 text-[#004fe1] uppercase"
+          >
+            All <span className="text-[#f80]">Blogs</span>
+          </h1>
+          <div className="flex gap-4 justify-center pb-40">
+            <Link to="/">
+              <h1 className=" text-white">HOME</h1>
+            </Link>
 
-      <div className="lg:flex  justify-center pb-10 gap-20 flex-wrap">
-        <div>
-          <div className="card w-96 bg-base-100 shadow-xl mb-5 lg:mb-0">
-            <figure>
-              <img
-                src="https://htmldemo.zcubethemes.com/qeducato/img/blog/inner_b3.jpg"
-                alt="Shoes"
-              />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title">Learn English in ease</h2>
-              <div className=" flex justify-around">
-                <div className=" flex relative ">
-                  <BiCalendarCheck className=" absolute top-1 left-[-20px]" />
-                  <p> 25 jun 2050</p>
-                </div>
-                <div className=" flex relative ">
-                  <FiEye className=" absolute top-1 left-[-20px]" />
-                  <p> 59</p>
-                </div>
-                <div className=" flex relative ">
-                  <HiOutlineChatAlt2 className=" absolute top-1 left-[-20px]" />
-                  <p> 19</p>
-                </div>
-              </div>
-
-              <p>
-                There are many Variaons of passages of Lorem Ipsuble, in some by
-                injected humour of passages of Lorem Ipsuable
-              </p>
-
-              <div  className="badge badge-outline mt-3 text py-4 px-4 bg-primary hover:bg-secondary text-white">
-                READ MORE
-              </div>
-            </div>
-          </div>
-        </div>
-        <div>
-          <div className="card w-96 bg-base-100 shadow-xl mb-5 lg:mb-0">
-            <figure>
-              <img
-                src="https://htmldemo.zcubethemes.com/qeducato/img/blog/inner_b3.jpg"
-                alt="Shoes"
-              />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title">Learn English in ease</h2>
-              <div className=" flex justify-around">
-                <div className=" flex relative ">
-                  <BiCalendarCheck className=" absolute top-1 left-[-20px]" />
-                  <p> 25 jun 2050</p>
-                </div>
-                <div className=" flex relative ">
-                  <FiEye className=" absolute top-1 left-[-20px]" />
-                  <p> 59</p>
-                </div>
-                <div className=" flex relative ">
-                  <HiOutlineChatAlt2 className=" absolute top-1 left-[-20px]" />
-                  <p> 19</p>
-                </div>
-              </div>
-
-              <p>
-                There are many Variaons of passages of Lorem Ipsuble, in some by
-                injected humour of passages of Lorem Ipsuable
-              </p>
-
-              <div className="badge badge-outline  mt-3 text py-4 px-4 bg-primary hover:bg-secondary text-white">
-                READ MORE
-              </div>
-            </div>
-          </div>
-        </div>
-        <div>
-          <div className="card w-96 bg-base-100 shadow-xl mb-5 lg:mb-0">
-            <figure>
-              <img
-                src="https://htmldemo.zcubethemes.com/qeducato/img/blog/inner_b3.jpg"
-                alt="Shoes"
-              />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title">Learn English in ease</h2>
-              <div className=" flex justify-around">
-                <div className=" flex relative ">
-                  <BiCalendarCheck className=" absolute top-1 left-[-20px]" />
-                  <p> 25 jun 2050</p>
-                </div>
-                <div className=" flex relative ">
-                  <FiEye className=" absolute top-1 left-[-20px]" />
-                  <p> 60</p>
-                </div>
-                <div className=" flex relative ">
-                  <HiOutlineChatAlt2 className=" absolute top-1 left-[-20px]" />
-                  <p> 19</p>
-                </div>
-              </div>
-
-              <p>
-                There are many Variaons of passages of Lorem Ipsuble, in some by
-                injected humour of passages of Lorem Ipsuable
-              </p>
-
-              <div className="badge badge-outline  mt-3 text py-4 px-4 bg-primary hover:bg-secondary text-white">
-                READ MORE
-              </div>
-            </div>
-          </div>
-        </div>
-        <div>
-          <div className="card w-96 bg-base-100 shadow-xl mb-5 lg:mb-0">
-            <figure>
-              <img
-                src="https://htmldemo.zcubethemes.com/qeducato/img/blog/inner_b3.jpg"
-                alt="Shoes"
-              />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title">Learn English in ease</h2>
-              <div className=" flex justify-around">
-                <div className=" flex relative ">
-                  <BiCalendarCheck className=" absolute top-1 left-[-20px]" />
-                  <p> 25 jun 2050</p>
-                </div>
-                <div className=" flex relative ">
-                  <FiEye className=" absolute top-1 left-[-20px]" />
-                  <p> 60</p>
-                </div>
-                <div className=" flex relative ">
-                  <HiOutlineChatAlt2 className=" absolute top-1 left-[-20px]" />
-                  <p> 19</p>
-                </div>
-              </div>
-
-              <p>
-                There are many Variaons of passages of Lorem Ipsuble, in some by
-                injected humour of passages of Lorem Ipsuable
-              </p>
-
-              <div className="badge badge-outline  mt-3 text py-4 px-4 bg-primary hover:bg-secondary text-white">
-                READ MORE
-              </div>
-            </div>
-          </div>
-        </div>
-        <div>
-          <div className="card w-96 bg-base-100 shadow-xl mb-5 lg:mb-0">
-            <figure>
-              <img
-                src="https://htmldemo.zcubethemes.com/qeducato/img/blog/inner_b3.jpg"
-                alt="Shoes"
-              />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title">Learn English in ease</h2>
-              <div className=" flex justify-around">
-                <div className=" flex relative ">
-                  <BiCalendarCheck className=" absolute top-1 left-[-20px]" />
-                  <p> 25 jun 2050</p>
-                </div>
-                <div className=" flex relative ">
-                  <FiEye className=" absolute top-1 left-[-20px]" />
-                  <p> 60</p>
-                </div>
-                <div className=" flex relative ">
-                  <HiOutlineChatAlt2 className=" absolute top-1 left-[-20px]" />
-                  <p> 19</p>
-                </div>
-              </div>
-
-              <p>
-                There are many Variaons of passages of Lorem Ipsuble, in some by
-                injected humour of passages of Lorem Ipsuable
-              </p>
-
-              <div className="badge badge-outline  mt-3 text py-4 px-4 bg-primary hover:bg-secondary text-white">
-                READ MORE
-              </div>
-            </div>
-          </div>
-        </div>
-        <div>
-          <div className="card w-96 bg-base-100 shadow-xl mb-5 lg:mb-0">
-            <figure>
-              <img
-                src="https://htmldemo.zcubethemes.com/qeducato/img/blog/inner_b3.jpg"
-                alt="Shoes"
-              />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title">Learn English in ease</h2>
-              <div className=" flex justify-around">
-                <div className=" flex relative ">
-                  <BiCalendarCheck className=" absolute top-1 left-[-20px]" />
-                  <p> 25 jun 2050</p>
-                </div>
-                <div className=" flex relative ">
-                  <FiEye className=" absolute top-1 left-[-20px]" />
-                  <p> 60</p>
-                </div>
-                <div className=" flex relative ">
-                  <HiOutlineChatAlt2 className=" absolute top-1 left-[-20px]" />
-                  <p> 19</p>
-                </div>
-              </div>
-
-              <p>
-                There are many Variaons of passages of Lorem Ipsuble, in some by
-                injected humour of passages of Lorem Ipsuable
-              </p>
-
-              <div className="badge badge-outline  mt-3 text py-4 px-4 bg-primary hover:bg-secondary text-white">
-                READ MORE
-              </div>
-            </div>
+            <IoIosArrowForward className="text-white mt-1" />
+            <h1 className=" text-white">BLOG</h1>
           </div>
         </div>
       </div>
-     
+      <Show />
     </div>
   );
 };

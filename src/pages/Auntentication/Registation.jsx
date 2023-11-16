@@ -2,47 +2,61 @@ import { useContext } from "react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useLocation, useNavigate } from "react-router-dom";
-import { AuthContext } from "../../provider/AuthProvider";
-
+import Loading from "../../components/loading/Loading";
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from "react-firebase-hooks/auth";
+import useToken from "../../hook/useToken";
+import auth from "../../firebase/firebase.init";
 
 function Registation() {
-
-  const {createNewUser} = useContext(AuthContext)
-
-  const navigate = useNavigate();
+ const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from?.pathname || "/home";
+  const from = location.state?.from?.pathname || '/home'; 
+  const [
+    createUserWithEmailAndPassword,
+    user,
+    loading,
+    error,
+  ] = useCreateUserWithEmailAndPassword(auth);
+  const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+  const [token] = useToken(user);
+  const { register,reset, handleSubmit,watch, formState: { errors } } = useForm();
+    let errorMessage;
+    if (error || updateError) {
 
-  const {
-    register,
-    reset,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm();
-
-  
-  const onSubmit = async (data) => {
-    const name = data?.name;
-    const email = data?.email;
-    const password = data?.password;
-    const confirm = data?.confirmPassword;
-
-    console.log(name, email, password, confirm);
-
-    if (password === confirm) {
-      createNewUser(email, password)
-      .then(result => {
-        const loggedUser = result.user;
-        console.log(loggedUser);
-      })
-      .catch(error =>{
-        console.log(error.message);
-      })
+        return (
+          <>
+          {
+            toast.error(error?.message || updateError?.message)
+          }
+          </>
+          )
+  }
+    if (loading || updating) {
+      return <div className='h-40 mt-10'>{<Loading />}</div>
     }
 
-    reset();
-  };
+    if(token){
+      navigate(from, { replace: true })
+    return(
+      <>
+        {
+         toast.success('Thank You! Registation Successfull')
+        }
+      </>
+      )
+ }
+    const onSubmit = async(data) => 
+    {
+        const name = data?.name;
+        const email = data?.email;
+        const password = data?.password;
+        const confirm = data?.confirmPassword;
+        if (password === confirm) {
+          await createUserWithEmailAndPassword(email, password);
+          await updateProfile({ displayName: name});
+        }
+        reset()
+    };
   return (
     <form className="sign-up-form" onSubmit={handleSubmit(onSubmit)}>
       {/* <p className="text-red-500">{errorMessage}</p> */}

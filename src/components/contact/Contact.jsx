@@ -17,10 +17,10 @@ const Contact = () => {
   const onSubmit = async (data) => {
     emailjs
       .sendForm(
-        "take-your-smile",
-        "template_wireu27",
+        "service_x0p77zg",
+        "template_hjckgu6",
         form.current,
-        "NVoyRWy1HhJ-3DfFm"
+        "DIvhxEW99ExV6qJYI"
       )
       .then(
         (result) => {
@@ -140,7 +140,7 @@ const Contact = () => {
                   type="text"
                   placeholder="Enter Phone"
                   className="input input-bordered input-primary"
-                  {...register("phone", {
+                  {...register("number", {
                     required: {
                       value: true,
                       message: "Number is required*",

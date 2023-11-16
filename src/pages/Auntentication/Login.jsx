@@ -6,28 +6,33 @@ import Registation from "./Registation";
 import { toast } from "react-toastify";
 
 import { useLocation, useNavigate } from "react-router-dom";
-import { useContext } from "react";
-import { AuthContext } from "../../provider/AuthProvider";
+
+import SocialLogin from "./SocialLogin";
+import {
+  useSendPasswordResetEmail,
+  useSignInWithEmailAndPassword,
+} from "react-firebase-hooks/auth";
+import useToken from "../../hook/useToken";
+import Loading from "../../components/loading/Loading";
+import auth from "../../firebase/firebase.init";
 
 function Login() {
-
-  const { logIn } = useContext(AuthContext);
-
-
   let navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/home";
 
-  const [email, setEmail] = useState();
-
-
+  const [email, setEmail] = useState("");
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
+  const [token] = useToken(user);
+  const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
   } = useForm({ mode: "onBlur" });
-  let [btnStatus, setBtnStatus] = useState();
+  let [btnStatus, setBtnStatus] = useState("");
   let changeBtnStatus = (status) => {
     setBtnStatus(status);
   };
@@ -35,15 +40,22 @@ function Login() {
   const onSubmit = async (data) => {
     const email = data.email;
     const password = data.password;
-
-    logIn(email, password)
-      .then(result => {
-        const loggedInUser = result.user;
-        alert('login successful');
-        reset()
-      })
-      .catch(error => console.log(error.message))
+    if (email && password) {
+      await signInWithEmailAndPassword(email, password);
+      reset();
+    }
   };
+  if (error) {
+    return <>{toast.error(error.message)}</>;
+  }
+  if (loading || sending) {
+    return <div className="h-40 mt-10">{<Loading />}</div>;
+  }
+
+  if (token) {
+    navigate(from, { replace: true });
+    return <>{toast.success("Thank You! Login Successfull")}</>;
+  }
 
   const resetPassword = async () => {
     if (email) {
@@ -121,11 +133,17 @@ function Login() {
                 </button>
               </p>
 
-              <input type="submit" value="Login" className="btn btn-submit solid" />
+              <input
+                type="submit"
+                value="Login"
+                className="btn btn-submit solid"
+              />
               <p className="social-text text-gray-500">
                 Or Sign in with social platforms
               </p>
             </form>
+            <SocialLogin />
+
             <Registation />
           </div>
         </div>

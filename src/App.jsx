@@ -1,7 +1,6 @@
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/home/HomePage";
-import BannarPage from "./pages/bannar/BannarPage";
 import AboutPage from "./pages/about/AboutPage";
 import TeacherPages from "./pages/teachers/TeacherPage";
 import CoursePage from "./pages/courses/CoursePage";
@@ -50,7 +49,7 @@ function App() {
         <Route path="/blogs" element={<BlogPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/allBlogs" element={<Show />} />
+        <Route path="/allBlogs" element={<BlogPage />} />
         <Route path="/article/:id" element={<SinglePage />}></Route>
         <Route path="/admin" element={<Dashboard />}>
           <Route index element={<Admin />} />

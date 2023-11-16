@@ -1,8 +1,10 @@
+import { useAuthState } from "react-firebase-hooks/auth";
 import "./Profile.css";
 import { useForm } from "react-hook-form";
 
 
 import { useNavigate } from "react-router-dom";
+import auth from "../../firebase/firebase.init";
 const EditProfile = () => {
   const navigate = useNavigate();
   const {
@@ -11,6 +13,8 @@ const EditProfile = () => {
     handleSubmit,
     reset,
   } = useForm();
+    const [user] = useAuthState(auth);
+    const email = user?.email;
   /*==========================================
       Get Profile info for display
 ========================================= */
@@ -18,6 +22,61 @@ const EditProfile = () => {
   /* =======================================
          profile update
  ========================================= */
+const onSubmit = (data) => {
+  const name = user?.displayName;
+  const image = data.image[0];
+  const formData = new FormData();
+  formData.append("image", image);
+  const url = `https://api.imgbb.com/1/upload?expiration=600&key=${imgStorageKey}`;
+  fetch(url, {
+    method: "POST",
+    body: formData,
+  })
+    .then((res) => res.json())
+    .then((result) => {
+      if (result.success) {
+        const img = result?.data?.url;
+        let bio;
+        if (data?.bio) {
+          bio = data?.bio;
+        } else {
+          bio = details?.bio;
+        }
+    
+    
+        const user = {
+          name: name,
+          email: email,
+          image: img,
+          userName: data?.userName,
+          phone: data?.phone,
+          bio: bio,
+        };
+
+        //send fata on database
+        fetch(
+          `https://take-your-smile-server-side.onrender.com/user/${email}`,
+          {
+            method: "PUT",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(user),
+          }
+        )
+          .then((res) => res.json())
+          .then((data) => {
+            if (data?.result?.modifiedCount > 0) {
+              const accessToken = data?.token;
+              localStorage.setItem("accessToken", accessToken);
+              toast.success("You are Successfully Update Profile!");
+              refetch();
+              reset();
+            }
+          });
+      }
+    });
+};
 
   return (
     <div>
