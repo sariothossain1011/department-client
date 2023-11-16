@@ -1,7 +1,6 @@
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/home/HomePage";
-import BannarPage from "./pages/bannar/BannarPage";
 import AboutPage from "./pages/about/AboutPage";
 import TeacherPages from "./pages/teachers/TeacherPage";
 import CoursePage from "./pages/courses/CoursePage";
@@ -26,6 +25,7 @@ import "aos/dist/aos.css";
 import { useEffect } from "react";
 import Show from "./components/blogs/Show";
 import SinglePage from "./components/blogs/SinglePage";
+import DetailsTeacher from "./components/teacher/DetailsTeacher";
 function App() {
     useEffect(() => {
       AOS.init();
@@ -37,6 +37,7 @@ function App() {
         <Route index path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="teachers" element={<TeacherPages />} />
+        <Route path="details-teacher" element={<DetailsTeacher />} />
         <Route
           path="specificTeacher/:id"
           element={<SpecificTeacher></SpecificTeacher>}
@@ -48,7 +49,7 @@ function App() {
         <Route path="/blogs" element={<BlogPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/allBlogs" element={<Show />} />
+        <Route path="/allBlogs" element={<BlogPage />} />
         <Route path="/article/:id" element={<SinglePage />}></Route>
         <Route path="/admin" element={<Dashboard />}>
           <Route index element={<Admin />} />
@@ -56,6 +57,7 @@ function App() {
           <Route path="users" element={<Users />} />
           <Route path="addCourse" element={<AddCourse />} />
           <Route path="addBlog" element={<BlogPost />} />
+          
         </Route>
         <Route path="*" element={<NotFoundPage />} />
         

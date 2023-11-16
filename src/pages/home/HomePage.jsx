@@ -8,6 +8,7 @@ import Achievement from "../../components/achievement/Achievement";
 import Gallery from "../../components/gallery/Gallery";
 import Blog from "../../components/blogs/Blog";
 import OurTeacher from "../../components/teacher/OurTeacher";
+import Show from "../../components/blogs/Show";
 
 
 const HomePage = () => {
@@ -17,9 +18,12 @@ const HomePage = () => {
       <About />
       <OurTeacher/>
       <Course />
-      <Achievement />
       <Gallery />
-      <Blog />
+      <div>
+        <h2 className="text-3xl uppercase font-bold text-center mt-10">Blogs</h2>
+
+      <Show />
+      </div>
     </Fragment>
   );
 };
