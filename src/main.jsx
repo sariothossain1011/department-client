@@ -9,11 +9,13 @@ import AuthProvider from "./provider/AuthProvider.jsx";
 const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <AuthProvider>
-      <QueryClientProvider client={queryClient}>
-        <App />
-      </QueryClientProvider>
-    </AuthProvider>
-  </React.StrictMode>
+  <div className="max-w-7xl mx-auto">
+    <React.StrictMode>
+      <AuthProvider>
+        <QueryClientProvider client={queryClient}>
+          <App />
+        </QueryClientProvider>
+      </AuthProvider>
+    </React.StrictMode>
+  </div>
 );
