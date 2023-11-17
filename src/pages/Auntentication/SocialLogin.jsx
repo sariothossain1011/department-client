@@ -7,11 +7,12 @@ import auth from '../../firebase/firebase.init';
 import { toast } from 'react-toastify';
 import { useLocation, useNavigate } from 'react-router-dom';
 import useToken from '../../hook/useToken'
+import Loading from '../../components/loading/Loading';
 
 const SocialLogin = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from?.pathname || '/home'; 
+  const from = location.state?.from?.pathname || '/'; 
   const [signInWithGoogle, Guser, Gloading, Gerror] = useSignInWithGoogle(auth);
   const [signInWithFacebook, Fuser, Floading, Ferror] = useSignInWithFacebook(auth);
   const [token] = useToken(Guser || Fuser);

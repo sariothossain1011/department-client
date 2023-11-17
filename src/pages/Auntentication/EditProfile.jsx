@@ -5,8 +5,12 @@ import { useForm } from "react-hook-form";
 
 import { useNavigate } from "react-router-dom";
 import auth from "../../firebase/firebase.init";
+import Picture from "../../components/ProfilePicture";
+import { useRef } from "react";
 const EditProfile = () => {
   const navigate = useNavigate();
+      const pRef = useRef(null);
+
   const {
     register,
     formState: { errors },
@@ -145,17 +149,18 @@ const onSubmit = (data) => {
                     data-aos-duration="3000"
                     className="text-center"
                   >
-                    <h3 className="text-xl font-bold capitalize text-info">User Name: Rana</h3>
+                    <h3 className="text-xl font-bold capitalize text-info">
+                      User Name: Rana
+                    </h3>
                     <div className="h5 font-weight-500">
                       Full Name: <span>Rana Arju</span>
-                    </div> 
+                    </div>
                     <div className="h5 font-weight-500">
                       Email: <span>arju@email.com</span>
                     </div>
                     <div className="h5 mt-4 ">
                       <i className="ni business_briefcase-24 mr-2">
-                        Phone: 
-
+                        Phone:
                         <a href="tel:01881220413" className="text-[#0A57E5]">
                           01881220413
                         </a>
@@ -292,59 +297,6 @@ const onSubmit = (data) => {
                           </p>
                         </div>
                       </div>
-                      <div className="row">
-                        <div className="col-lg-4">
-                          <div className="form-group focused">
-                            <label
-                              className="fromControl-label"
-                              for="input-city"
-                            >
-                              City
-                            </label>
-                            <input
-                              type="text"
-                              id="input-city"
-                              className="fromControl fromControl-alternative"
-                              placeholder="City"
-                              {...register("city")}
-                            />
-                          </div>
-                        </div>
-                        <div className="col-lg-4">
-                          <div className="form-group focused">
-                            <label
-                              className="fromControl-label"
-                              for="input-country"
-                            >
-                              Country
-                            </label>
-                            <input
-                              type="text"
-                              id="input-country"
-                              className="fromControl fromControl-alternative"
-                              placeholder="Country"
-                              {...register("country")}
-                            />
-                          </div>
-                        </div>
-                        <div className="col-lg-4">
-                          <div className="form-group">
-                            <label
-                              className="fromControl-label"
-                              for="input-country"
-                            >
-                              Postal code
-                            </label>
-                            <input
-                              type="number"
-                              id="input-postal-code"
-                              className="fromControl fromControl-alternative"
-                              placeholder="Postal code"
-                              {...register("postal")}
-                            />
-                          </div>
-                        </div>
-                      </div>
                     </div>
                     <hr className="my-4" />
                     <h6
@@ -359,42 +311,14 @@ const onSubmit = (data) => {
                       <label className="fromControl-label capitalize">
                         Upload Your profile photo
                       </label>
-                      <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
-                        <div className="space-y-1 text-center">
-                          <svg
-                            className="mx-auto h-12 w-12 text-[#0A57E5]"
-                            stroke="currentColor"
-                            fill="none"
-                            viewBox="0 0 48 48"
-                            aria-hidden="true"
-                          >
-                            <path
-                              d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
-                              stroke-width="2"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                          </svg>
-                          <div className="flex">
-                            <label className="relative cursor-pointer  rounded-md  px-3 py-2">
-                              <span className="font-mono text-[#0A57E5]">
-                                Upload a Photo
-                              </span>
-                              <input
-                                id="file-upload"
-                                type="file"
-                                className="sr-only"
-                                {...register("image", {
-                                  required: {
-                                    value: true,
-                                    message: "image is required*",
-                                  },
-                                })}
-                              />
-                            </label>
-                          </div>
-                        </div>
-                      </div>
+                      <Picture
+                        setShow={false}
+                        pRef={pRef}
+                        register={register}
+                        photos={
+                          "https://res.cloudinary.com/db8l1ulfq/image/upload/v1686970331/g19pc3lv7duuzevggsqh.jpg"
+                        }
+                      />
                       <p className="text-left text-red-500">
                         {errors.image?.type === "required" && (
                           <span>{errors.image.message}</span>

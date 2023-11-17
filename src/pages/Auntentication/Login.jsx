@@ -19,7 +19,7 @@ import auth from "../../firebase/firebase.init";
 function Login() {
   let navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from?.pathname || "/home";
+  const from = location.state?.from?.pathname || "/";
 
   const [email, setEmail] = useState("");
   const [signInWithEmailAndPassword, user, loading, error] =
