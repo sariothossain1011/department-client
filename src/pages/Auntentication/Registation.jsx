@@ -10,7 +10,7 @@ import auth from "../../firebase/firebase.init";
 function Registation() {
  const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from?.pathname || '/home'; 
+  const from = location.state?.from?.pathname || '/'; 
   const [
     createUserWithEmailAndPassword,
     user,

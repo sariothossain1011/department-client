@@ -1,14 +1,24 @@
 import { useState } from "react";
 import { AiOutlineMenuUnfold } from "react-icons/ai";
 import logo from "../../assets/logo.jpg";
-import { Link } from "react-router-dom";
-import { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../firebase/firebase.init";
+import { signOut } from "firebase/auth";
 const Header = () => {
+  const navigate = useNavigate();
+
   const [open, setOpen] = useState(false);
   const handleToggle = () => {
     setOpen(!open);
   };
-  console.log(open);
+  const [user] = useAuthState(auth);
+  const logout = () => {
+    signOut(auth);
+    navigate("/login");
+    localStorage.removeItem("accessToken");
+  };
+  console.log("user.......", user);
   return (
     <nav className="p-5 bg-white shadow md:flex md:items-center md:justify-between ">
       <div className="flex justify-between items-center ">
@@ -94,17 +104,22 @@ const Header = () => {
             Dashbord
           </Link>
         </li>
-        {/* <button
-          className="bg-[#256CF0] text-[14px] font-bold text-white font-[Poppins] duration-500 px-6 py-2 mx-4 hover:bg-[#256CF0] rounded "
-        >
-          Log out
-        </button>  */}
-        <Link
-          to={"/login"}
-          className="bg-[#256CF0] text-[14px] font-bold text-white font-[Poppins] duration-500 px-6 py-2 mx-4 hover:bg-[#256CF0] rounded "
-        >
-          Log in
-        </Link>
+        {user ? (
+          <button
+            className="bg-[#256CF0] text-[14px] font-bold text-white font-[Poppins] duration-500 px-6 py-2 mx-4 hover:bg-[#256CF0] rounded "
+            onClick={logout}
+          >
+            Log out
+          </button>
+        ) : (
+          <Link
+            to={"/login"}
+            className="bg-[#256CF0] text-[14px] font-bold text-white font-[Poppins] duration-500 px-6 py-2 mx-4 hover:bg-[#256CF0] rounded "
+          >
+            Log in
+          </Link>
+        )}
+
         <h2 className=""></h2>
       </ul>
     </nav>
