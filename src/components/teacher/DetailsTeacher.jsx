@@ -22,15 +22,15 @@ function DetailsTeacher() {
         </div>
       </div>
       <div className="container mx-auto py-24">
-        <div className="flex gap-10 ">
-          <div className=" w-2/5  ">
+        <div className="md:flex md:gap-10 ">
+          <div className=" md:w-2/5  ">
             <img
               src="https://htmldemo.zcubethemes.com/qeducato/img/team/team01.jpg"
               alt="Teachar Image"
               className=" bg-[#777] p-3"
             />
           </div>
-          <div className=" w-3/5">
+          <div className=" md:w-3/5">
             <h1 className=" text-5xl font-semibold text-titel">
               Ronal Anderson
             </h1>
