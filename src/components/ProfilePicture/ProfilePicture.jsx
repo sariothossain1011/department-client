@@ -5,6 +5,7 @@ import { UploadImages } from "../../functions/uploadImages";
 import { PulseLoader } from "react-spinners";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase/firebase.init";
+import { updateProfilepicture } from "../../functions/user";
 
 const ProfilePicture = ({ setImage, image, setError,  pRef }) => {
     const [user] = useAuthState(auth);
@@ -54,11 +55,12 @@ const ProfilePicture = ({ setImage, image, setError,  pRef }) => {
       const res = await UploadImages(formData, path, user?.accessToken);
       console.log("res😍😎😎", res);
 
-    //   const update_picture = await updateProfilepicture(
-    //     res[0].url,
+      const update_picture = await updateProfilepicture(
+        res[0].url,
 
-    //     user.token
-    //   );
+        user.accessToken
+      );
+      setImage(res[0].url);
       if (update_picture === "ok") {
         const new_post = await createPost(
           "profilePicture",
