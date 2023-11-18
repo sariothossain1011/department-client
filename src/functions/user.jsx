@@ -1,17 +1,21 @@
 import axios from "axios";
-export const updateProfilepicture = async (url, token) => {
+
+export const getUser = async (token) => {
   try {
-    const { data } = await axios.put(
-      `${process.env.REACT_APP_BACKEND_URL}/updateProfilePicture`,
-      { url },
+    const { data } = await axios.get(
+      "https://department-server-tau.vercel.app/api/v1/find-user",
       {
+        method: "GET",
         headers: {
+          "content-type": "application/json",
           Authorization: `Bearer ${token}`,
         },
       }
     );
-    return "ok";
+    console.log("response 😘 😍 😎", data);
+    return data;
   } catch (error) {
-    return error.response.data.message;
+    console.error(error);
   }
 };
+export default getUser;
