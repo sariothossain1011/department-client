@@ -5,7 +5,7 @@ export const UploadImages = async (formData, path, token) => {
     console.log(`formData: ${formData}, path: ${path}, token: ${token} `);
   try {
     const { data } = await instance.post(
-      `${process.env.REACT_APP_BACKEND_URL}/uploadImages`,
+      `http://localhost:8080/api/v1/uploadImages`,
       formData,
       { path },
       {
