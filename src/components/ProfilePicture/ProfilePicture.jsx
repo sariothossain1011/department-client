@@ -5,10 +5,16 @@ import { UploadImages } from "../../functions/uploadImages";
 import { PulseLoader } from "react-spinners";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase/firebase.init";
-import { updateProfilepicture } from "../../functions/user";
 
-const ProfilePicture = ({ setImage, image, setError,  pRef }) => {
-    const [user] = useAuthState(auth);
+const ProfilePicture = ({
+  setImage,
+  image,
+  setError,
+  pRef,
+  picture,
+  setPicture,
+}) => {
+  const [user] = useAuthState(auth);
   const [crop, setCrop] = useState({ x: 0, y: 0 });
   const [zoom, setZoom] = useState(1);
   const [loading, setLoading] = useState(false);
@@ -53,45 +59,14 @@ const ProfilePicture = ({ setImage, image, setError,  pRef }) => {
       formData.append("file", blob);
       formData.append("path", path);
       const res = await UploadImages(formData, path, user?.accessToken);
-      console.log("res😍😎😎", res);
-
-      const update_picture = await updateProfilepicture(
-        res[0].url,
-
-        user.accessToken
-      );
-      setImage(res[0].url);
-      if (update_picture === "ok") {
-        const new_post = await createPost(
-          "profilePicture",
-          null,
-          description,
-          res,
-          user.id,
-          user.token
-        );
-        if (new_post.status === "ok") {
-          setLoading(false);
-          setImage("");
-          pRef.current.style.backgroundImage = `url(${res[0].url})`;
-    
-
-          dispatch({
-            type: "UPDATEPICTURE",
-            payload: res[0].url,
-          });
-          setShow(false);
-        } else {
-          setLoading(false);
-          setError(new_post);
-        }
-      } else {
+      if (res[0].url) {
+        setPicture(res[0].url);
+        setImage("")
         setLoading(false);
-        setError(update_picture);
       }
     } catch (error) {
       setLoading(false);
-    //   setError(error.response.data.message);
+      //   setError(error.response.data.message);
     }
   };
   return (
@@ -152,7 +127,7 @@ const ProfilePicture = ({ setImage, image, setError,  pRef }) => {
           disabled={loading}
           onClick={() => updateProfilePic()}
         >
-          {loading ? <PulseLoader color="#fff" size={10} /> : "Save"}
+          {loading ? <PulseLoader color="#0553E3" size={10} /> : "Save"}
         </button>
       </div>
     </div>

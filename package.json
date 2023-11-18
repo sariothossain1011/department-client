@@ -14,6 +14,7 @@
     "@tanstack/react-query": "^5.8.3",
     "@tinymce/tinymce-react": "^4.3.0",
     "aos": "^2.3.4",
+    "axios": "^1.6.2",
     "dompurify": "^3.0.6",
     "firebase": "^10.6.0",
     "lightbox.js-react": "^0.9.6",
