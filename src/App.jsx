@@ -8,7 +8,7 @@ import AchievementPage from "./pages/achievement/AchievementPage";
 import GalleryPage from "./pages/gallery/GalleryPage";
 import BlogPage from "./pages/blogs/BlogPage";
 import NotFoundPage from "./pages/notFound/NotFoundPage";
-import CourseSinglePage from "./pages/courses/CourseSinglePage";
+import CourseSinglePage from "./pages/courses/SubjectsPage";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 import ContactPage from "./pages/contact/ContactPage";
@@ -26,6 +26,8 @@ import { useEffect } from "react";
 import Show from "./components/blogs/Show";
 import SinglePage from "./components/blogs/SinglePage";
 import DetailsTeacher from "./components/teacher/DetailsTeacher";
+import SubjectsPage from "./pages/courses/SubjectsPage";
+import ClassesPage from "./pages/courses/ClassesPage";
 function App() {
     useEffect(() => {
       AOS.init();
@@ -43,7 +45,9 @@ function App() {
           element={<SpecificTeacher></SpecificTeacher>}
         />
         <Route path="/courses" element={<CoursePage />} />
-        <Route path="/course-single" element={<CourseSinglePage />} />
+        <Route path="/single-course/:id" element={<CourseSinglePage />} />
+        <Route path="/subjects/:id" element={<SubjectsPage />} />
+        <Route path="/classes/:id" element={<ClassesPage />} />
         <Route path="/achievements" element={<AchievementPage />} />
         <Route path="/gallery" element={<GalleryPage />} />
         <Route path="/blogs" element={<BlogPage />} />
