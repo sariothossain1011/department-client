@@ -17,7 +17,6 @@ const CourseCard = () => {
       const {data} = await axios.get("https://department-server-tau.vercel.app/api/v1/find-course-list");
       
       const semesterData = await data.data ;
-      console.log("......res", semesterData);
       setSemester(semesterData)
       
     } catch (error) {
@@ -43,7 +42,7 @@ const CourseCard = () => {
         <div className="card-body indicator ">
         <span class="indicator-item indicator-start ms-20 badge badge-secondary p-3">{item.semesterName}</span>
           <div className="card-title ">
-          <Link to={`/subjects/${item._id}`}><h1>{item.semesterTitle}</h1></Link>
+          <Link to={`/courses/${item._id}`}><h1>{item.semesterTitle}</h1></Link>
           </div>
           <div className="card-actions justify-between">
             <div className=""> 30 vodes</div>

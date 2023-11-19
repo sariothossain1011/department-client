@@ -3,21 +3,21 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { FaArrowRight } from "react-icons/fa";
 const SubjectCard = () => {
-    const params = useParams();
+    const {semesterId} = useParams();
+
 
    const [subject, setSubject] = useState([]);
-   console.log(subject,"......")
 
    
   useEffect(() => {
     fetchSubjectData();
-  }, [params.id]);
+  }, [semesterId]);
 
   const fetchSubjectData = async () => {
     try {
-      if (params.id) {
+      if (semesterId) {
         const { data } = await axios.get(
-          `https://department-server-tau.vercel.app/api/v1/course-find-subject/${params.id}`
+          `https://department-server-tau.vercel.app/api/v1/course-find-subject/${semesterId}`
         );
         const subjectData = await data.data;
         setSubject(subjectData);
@@ -52,7 +52,7 @@ const SubjectCard = () => {
               {item.subjectDescription}
             </p>
             <a
-              href={`/classes/${item._id}`}
+              href={`/courses/${semesterId}/${item._id}/videos`}
               class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
               Read more <FaArrowRight className="mt-1 ml-2" />

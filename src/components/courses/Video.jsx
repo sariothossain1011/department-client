@@ -1,32 +1,4 @@
 
-// import React from 'react';
-
-// const Video = (props) => {
-//   const { link, title, description } = props;
-//   console.log("link",link)
-
-//   return (
-//     <div className="w-screen flex h-screen flex-row">
-//       <div className="w-full h-3/4 mt-4 px-2 pt-2 rounded-xl border-2 border-slate-400">
-//         <iframe
-//           width="100%"
-//           height="100%"
-//           src={`${link}`}
-//           title="YouTube Video"
-//           frameBorder="0"
-//           allowFullScreen
-//         ></iframe>
-
-//         <div className="mt-1 h-1/3 text-left text-xl text-slate-600">
-//           Title: {title}
-//           <p className="text-lg pt-2">Description: {description}</p>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Video;
 
 
 import React from 'react';

@@ -45,9 +45,9 @@ function App() {
           element={<SpecificTeacher></SpecificTeacher>}
         />
         <Route path="/courses" element={<CoursePage />} />
-        <Route path="/single-course/:id" element={<CourseSinglePage />} />
-        <Route path="/subjects/:id" element={<SubjectsPage />} />
-        <Route path="/classes/:id" element={<ClassesPage />} />
+        <Route path="/courses/:semesterId" element={<CourseSinglePage />} />
+        <Route path="/courses/:semesterId/:subjectId" element={<SubjectsPage />} />
+        <Route path="/courses/:semesterId/:subjectId/videos" element={<ClassesPage />} />
         <Route path="/achievements" element={<AchievementPage />} />
         <Route path="/gallery" element={<GalleryPage />} />
         <Route path="/blogs" element={<BlogPage />} />
