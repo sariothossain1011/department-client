@@ -18,7 +18,7 @@ const Header = () => {
     navigate("/login");
     localStorage.removeItem("accessToken");
   };
-  console.log("user.......", user);
+  // console.log("user.......", user);
   return (
     <nav className="p-5 bg-white shadow md:flex md:items-center md:justify-between ">
       <div className="flex justify-between items-center ">

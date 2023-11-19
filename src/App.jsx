@@ -8,7 +8,7 @@ import AchievementPage from "./pages/achievement/AchievementPage";
 import GalleryPage from "./pages/gallery/GalleryPage";
 import BlogPage from "./pages/blogs/BlogPage";
 import NotFoundPage from "./pages/notFound/NotFoundPage";
-import CourseSinglePage from "./pages/courses/CourseSinglePage";
+import CourseSinglePage from "./pages/courses/SubjectsPage";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 import ContactPage from "./pages/contact/ContactPage";
@@ -28,6 +28,8 @@ import SinglePage from "./components/blogs/SinglePage";
 import DetailsTeacher from "./components/teacher/DetailsTeacher";
   import { ToastContainer} from "react-toastify";
   import "react-toastify/dist/ReactToastify.css";
+import SubjectsPage from "./pages/courses/SubjectsPage";
+import ClassesPage from "./pages/courses/ClassesPage";
 function App() {
     useEffect(() => {
       AOS.init();
@@ -45,7 +47,9 @@ function App() {
           element={<SpecificTeacher></SpecificTeacher>}
         />
         <Route path="/courses" element={<CoursePage />} />
-        <Route path="/course-single" element={<CourseSinglePage />} />
+        <Route path="/courses/:semesterId" element={<CourseSinglePage />} />
+        <Route path="/courses/:semesterId/:subjectId" element={<SubjectsPage />} />
+        <Route path="/courses/:semesterId/:subjectId/:videos" element={<ClassesPage />} />
         <Route path="/achievements" element={<AchievementPage />} />
         <Route path="/gallery" element={<GalleryPage />} />
         <Route path="/blogs" element={<BlogPage />} />
