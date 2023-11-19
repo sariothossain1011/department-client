@@ -17,7 +17,7 @@ const SubjectCard = () => {
     try {
       if (params.id) {
         const { data } = await axios.get(
-          `http://localhost:8080/api/v1/course-find-subject/${params.id}`
+          `https://department-server-tau.vercel.app/api/v1/course-find-subject/${params.id}`
         );
         const subjectData = await data.data;
         setSubject(subjectData);

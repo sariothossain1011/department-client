@@ -14,7 +14,7 @@ const CourseCard = () => {
   
   const fetchData = async () => {
     try {
-      const {data} = await axios.get("http://localhost:8080/api/v1/find-course-list");
+      const {data} = await axios.get("https://department-server-tau.vercel.app/api/v1/find-course-list");
       
       const semesterData = await data.data ;
       console.log("......res", semesterData);

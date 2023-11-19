@@ -86,7 +86,7 @@ const Classes = () => {
   const fetchVideoData = async (id) => {
     try {
       const { data } = await axios.get(
-        `http://localhost:8080/api/v1/find-subject-by-video/${id}`
+        `https://department-server-tau.vercel.app/api/v1/find-subject-by-video/${id}`
       );
       const VideoData = await data.data;
       setVideo(VideoData);
