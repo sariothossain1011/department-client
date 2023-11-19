@@ -15,7 +15,7 @@ export default function BlogPost() {
       body: body,
       image: image,
     };
-    fetch("https://take-your-smile-server-side.onrender.com/articles", {
+    fetch("https://department-server-tau.vercel.app/api/v1/create-blog", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -24,7 +24,8 @@ export default function BlogPost() {
     })
       .then((res) => res.json())
       .then((insertData) => {
-        if (insertData.insertedId) {
+        console.log(insertData.status == "success");
+        if (insertData.status == "success") {
           toast.success("You Are Successfully Post!");
         }
       });
