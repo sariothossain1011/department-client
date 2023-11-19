@@ -1,11 +1,11 @@
-import { useContext } from "react";
-import { useState } from "react";
+
 import { useForm } from "react-hook-form";
 import { useLocation, useNavigate } from "react-router-dom";
 import Loading from "../../components/loading/Loading";
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from "react-firebase-hooks/auth";
 import useToken from "../../hook/useToken";
 import auth from "../../firebase/firebase.init";
+import { toast } from "react-toastify";
 
 function Registation() {
  const navigate = useNavigate();

@@ -26,6 +26,8 @@ import { useEffect } from "react";
 import Show from "./components/blogs/Show";
 import SinglePage from "./components/blogs/SinglePage";
 import DetailsTeacher from "./components/teacher/DetailsTeacher";
+  import { ToastContainer} from "react-toastify";
+  import "react-toastify/dist/ReactToastify.css";
 function App() {
     useEffect(() => {
       AOS.init();
@@ -57,15 +59,13 @@ function App() {
           <Route path="users" element={<Users />} />
           <Route path="addCourse" element={<AddCourse />} />
           <Route path="addBlog" element={<BlogPost />} />
-          
         </Route>
         <Route path="*" element={<NotFoundPage />} />
-        
 
         {/* Login and singUp route's */}
-       
       </Routes>
       <Footer />
+      <ToastContainer />
     </BrowserRouter>
   );
 }
