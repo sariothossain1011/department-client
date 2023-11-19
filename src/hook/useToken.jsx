@@ -17,7 +17,7 @@ const useToken = (user) => {
     }
 
     if (email) {
-      fetch(`https://take-your-smile-server-side.onrender.com/user/${email}`, {
+      fetch(`https://department-server-tau.vercel.app/api/v1/Registration`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",
@@ -26,6 +26,7 @@ const useToken = (user) => {
       })
         .then((res) => res.json())
         .then((data) => {
+          console.log("login data 🥰🥰", data);
           const accessToken = data?.token;
           localStorage.setItem("accessToken", accessToken);
           setToken(accessToken);

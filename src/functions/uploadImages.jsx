@@ -2,10 +2,10 @@ import axios from "axios";
 const instance = axios.create();
 
 export const UploadImages = async (formData, path, token) => {
-    console.log(`formData: ${formData}, path: ${path}, token: ${token} `);
+  console.log(`formData: ${formData}, path: ${path}, token: ${token} `);
   try {
     const { data } = await instance.post(
-      `http://localhost:8080/api/v1/uploadImages`,
+      `https://department-server-tau.vercel.app/api/v1/uploadImages`,
       formData,
       { path },
       {

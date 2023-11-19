@@ -2,16 +2,16 @@ import React, { useRef, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase/firebase.init";
 import ProfilePicture from "./ProfilePicture";
-import "./style.css"
-const Picture = ({ pRef, photos, register }) => {
+import "./style.css";
+const Picture = ({ pRef,  register, picture, setPicture }) => {
   const { user } = useAuthState(auth);
   const popup = useRef(null);
   // useClickOutside(popup, () => setShow(false));
-  const [image, setImage] = useState("");
   const [error, setError] = useState("");
   const inputRef = useRef(null);
-  const handleImage = (e) => {
+  const [image, setImage] = useState("");
 
+  const handleImage = (e) => {
     let file = e.target.files[0];
     console.log(file);
     if (
@@ -42,7 +42,6 @@ const Picture = ({ pRef, photos, register }) => {
         hidden
         onChange={handleImage}
         accept="image/jpeg, image/png, image/gif, image/webp"
-    
       />
       {error && (
         <div className="postError comment_error">
@@ -106,6 +105,8 @@ const Picture = ({ pRef, photos, register }) => {
           image={image}
           setError={setError}
           pRef={pRef}
+          picture={picture}
+          setPicture={setPicture}
         />
       )}
     </div>

@@ -1,15 +1,16 @@
 import { useAuthState } from "react-firebase-hooks/auth";
 import "./Profile.css";
 import { useForm } from "react-hook-form";
-
-
-import { useNavigate } from "react-router-dom";
 import auth from "../../firebase/firebase.init";
 import Picture from "../../components/ProfilePicture";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import axios from "axios";
 const EditProfile = () => {
-  const navigate = useNavigate();
-      const pRef = useRef(null);
+  const [user] = useAuthState(auth);
+  const token = localStorage.getItem("accessToken");
+  const pRef = useRef(null);
+  const [details, setDetails] = useState();
+  const [picture, setPicture] = useState(user?.photoURL);
 
   const {
     register,
@@ -17,71 +18,64 @@ const EditProfile = () => {
     handleSubmit,
     reset,
   } = useForm();
-    const [user] = useAuthState(auth);
-    const email = user?.email;
-  /*==========================================
-      Get Profile info for display
-========================================= */
-
-  /* =======================================
-         profile update
- ========================================= */
-const onSubmit = (data) => {
+  const email = user?.email;
   const name = user?.displayName;
-  const image = data.image[0];
-  const formData = new FormData();
-  formData.append("image", image);
-  const url = `https://api.imgbb.com/1/upload?expiration=600&key=${imgStorageKey}`;
-  fetch(url, {
-    method: "POST",
-    body: formData,
-  })
-    .then((res) => res.json())
-    .then((result) => {
-      if (result.success) {
-        const img = result?.data?.url;
-        let bio;
-        if (data?.bio) {
-          bio = data?.bio;
-        } else {
-          bio = details?.bio;
-        }
-    
-    
-        const user = {
-          name: name,
-          email: email,
-          image: img,
-          userName: data?.userName,
-          phone: data?.phone,
-          bio: bio,
-        };
+  const onSubmit = (data) => {
+    const user = {
+      name: name,
+      email: email,
+      image: picture,
+      userName: data?.userName,
+      phone: data?.phone,
+      bio: data.bio,
+    };
 
-        //send fata on database
-        fetch(
-          `https://take-your-smile-server-side.onrender.com/user/${email}`,
-          {
-            method: "PUT",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify(user),
-          }
-        )
-          .then((res) => res.json())
-          .then((data) => {
-            if (data?.result?.modifiedCount > 0) {
-              const accessToken = data?.token;
-              localStorage.setItem("accessToken", accessToken);
-              toast.success("You are Successfully Update Profile!");
-              refetch();
-              reset();
-            }
-          });
+    //send data on database
+    fetch(
+      `https://department-server-tau.vercel.app/api/v1/update-user/${email}`,
+      {
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(user),
       }
-    });
-};
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("updated data 🥰😥😘", data);
+        if (data) {
+          // const accessToken = data?.token;
+          // localStorage.setItem("accessToken", user.accessToken);
+          // toast.success("You are Successfully Update Profile!");
 
+          reset();
+        }
+      });
+  };
+  const getUser = async () => {
+    try {
+      const { data } = await axios.get(
+        "https://department-server-tau.vercel.app/api/v1/find-user",
+        {
+          method: "GET",
+          headers: {
+            "content-type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      setDetails(data.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  useEffect(() => {
+    getUser();
+  }, []);
+
+  console.log("user data", details);
   return (
     <div>
       <div className="main-content">
@@ -95,7 +89,7 @@ const onSubmit = (data) => {
                   data-aos-duration="3000"
                   className="display-2 text-white text-2xl md:text-3xl"
                 >
-                  Hello Rana,
+                  Hello {details?.name},
                 </h1>
                 <p
                   data-aos="fade-up"
@@ -121,10 +115,7 @@ const onSubmit = (data) => {
                       data-aos-duration="3000"
                       className="card-profile-image"
                     >
-                      <img
-                        src="https://i.ibb.co/rwGPsQ9/profile.jpg"
-                        className="rounded-circle"
-                      />
+                      <img src={details?.image} className="rounded-circle" />
                     </div>
                   </div>
                 </div>
@@ -149,29 +140,35 @@ const onSubmit = (data) => {
                     data-aos-duration="3000"
                     className="text-center"
                   >
-                    <h3 className="text-xl font-bold capitalize text-info">
-                      User Name: Rana
-                    </h3>
-                    <div className="h5 font-weight-500">
-                      Full Name: <span>Rana Arju</span>
-                    </div>
-                    <div className="h5 font-weight-500">
-                      Email: <span>arju@email.com</span>
-                    </div>
-                    <div className="h5 mt-4 ">
-                      <i className="ni business_briefcase-24 mr-2">
-                        Phone:
-                        <a href="tel:01881220413" className="text-[#0A57E5]">
-                          01881220413
-                        </a>
-                      </i>
-                    </div>
-                    <div>
-                      <i className="ni education_hat mr-2 text-info">BD</i>
-                    </div>
-                    <hr className="my-4" />
+                    {details?.userName && (
+                      <h3 className="text-xl font-bold capitalize text-info">
+                        User Name: {details?.userName}
+                      </h3>
+                    )}
 
-                    <p className="text-info">Add Your Bio</p>
+                    <div className="h5 font-weight-500">
+                      Full Name: <span>{details?.name}</span>
+                    </div>
+                    <div className="h5 font-weight-500">
+                      Email: <span>{details?.email}</span>
+                    </div>
+                    {details?.mobile && (
+                      <div className="h5 mt-4 ">
+                        <i className="ni business_briefcase-24 mr-2">
+                          Phone:
+                          <a href="tel:01881220413" className="text-[#0A57E5]">
+                            {details?.mobile}
+                          </a>
+                        </i>
+                      </div>
+                    )}
+
+                    <hr className="my-4" />
+                    {details?.bio ? (
+                      <p className="text-info">{details?.bio}</p>
+                    ) : (
+                      <p className="text-info">Add Your Bio</p>
+                    )}
                   </div>
                 </div>
               </div>
@@ -192,7 +189,10 @@ const onSubmit = (data) => {
                   </div>
                 </div>
                 <div className="card-body">
-                  <form className="items-stretch p-0">
+                  <form
+                    className="items-stretch p-0"
+                    onSubmit={handleSubmit(onSubmit)}
+                  >
                     <h6
                       data-aos="flip-down"
                       data-aos-duration="3000"
@@ -247,6 +247,7 @@ const onSubmit = (data) => {
                               type="email"
                               id="input-email"
                               className="fromControl fromControl-alternative"
+                              value={email}
                               disabled
                             />
                           </div>
@@ -265,6 +266,7 @@ const onSubmit = (data) => {
                               type="text"
                               id="input-fullname"
                               className="fromControl fromControl-alternative"
+                              value={name}
                               disabled
                             />
                           </div>
@@ -314,10 +316,9 @@ const onSubmit = (data) => {
                       <Picture
                         setShow={false}
                         pRef={pRef}
+                        picture={picture}
+                        setPicture={setPicture}
                         register={register}
-                        photos={
-                          "https://res.cloudinary.com/db8l1ulfq/image/upload/v1686970331/g19pc3lv7duuzevggsqh.jpg"
-                        }
                       />
                       <p className="text-left text-red-500">
                         {errors.image?.type === "required" && (
