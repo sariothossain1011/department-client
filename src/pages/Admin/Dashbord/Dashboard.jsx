@@ -78,14 +78,24 @@ function Dashboard() {
               </li>
             )}
             {details?.role == "admin" && (
-              <li className="mx-4 my-3">
-                <Link
-                  to="addCourse"
-                  className="text-[16px] font-bold md:hover:text-[#256CF0] duration-500"
-                >
-                  Add Course
-                </Link>
-              </li>
+              <>
+                <li className="mx-4 my-3">
+                  <Link
+                    to="addCourse"
+                    className="text-[16px] font-bold md:hover:text-[#256CF0] duration-500"
+                  >
+                    Add Course
+                  </Link>
+                </li>
+                <li className="mx-4 my-3">
+                  <Link
+                    to="addTecher"
+                    className="text-[16px] font-bold md:hover:text-[#256CF0] duration-500"
+                  >
+                    Add Teacher
+                  </Link>
+                </li>
+              </>
             )}
 
             <li className="mx-4 my-3">
