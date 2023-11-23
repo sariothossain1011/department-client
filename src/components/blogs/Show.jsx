@@ -1,6 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { useEffect } from "react";
-import { IoIosArrowForward } from "react-icons/io";
+
 import { Link, useNavigate } from "react-router-dom";
 
 const Show = () => {
@@ -14,7 +13,7 @@ const Show = () => {
   } = useQuery({
     queryKey: ["articles"],
     queryFn: () =>
-      fetch("https://take-your-smile-server-side.onrender.com/articles", {
+      fetch("http://localhost:8080/api/v1/find-blog-list", {
         method: "GET",
         headers: {
           "content-type": "applicataion/json",
@@ -28,12 +27,16 @@ const Show = () => {
   if (isError) {
     return <span>Error: {error.message}</span>;
   }
+  console.log("articles", articles);
   const getText = (data) => {
+  
     const html = document.createElement("div");
     html.innerHTML = data;
-    const plenText = html.textContent ? html.textContent : html.innerText;
-    return plenText.slice(0, 150);
+    const plenText = html.textContent ? html.innerText : html.innerText;
+ 
+    return plenText.slice(0,150).replace(/<[^>]+>/g, '')
   };
+
   const handlePost = (id) => {
     const path = `/article/${id}`;
     navigate(path);
@@ -43,27 +46,20 @@ const Show = () => {
 
   return (
     <div className="overflow-x-hidden sm:overflow-x-hidden">
-     
       <div className=" mx-auto font-sans ">
         <section className="text-gray-600 body-font">
           <div className="container px-5 py-24 mx-auto">
             <div className="flex flex-wrap -m-4">
               {articles &&
-                articles.map((item) => (
+                articles.data.map((item) => (
                   <div className="p-4 md:w-1/3" key={item._id}>
                     <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
-                      {item.image ? (
+                      {item.image && (
                         <img
                           data-aos="zoom-in"
                           data-aos-duration="3000"
                           className="lg:h-48 md:h-36 w-full object-cover object-center"
                           src={item.image}
-                          alt="blog"
-                        />
-                      ) : (
-                        <img
-                          className="lg:h-48 md:h-36 w-full object-cover object-center"
-                          src="placeholder.png"
                           alt="blog"
                         />
                       )}

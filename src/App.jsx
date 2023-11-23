@@ -30,6 +30,7 @@ import DetailsTeacher from "./components/teacher/DetailsTeacher";
   import "react-toastify/dist/ReactToastify.css";
 import SubjectsPage from "./pages/courses/SubjectsPage";
 import ClassesPage from "./pages/courses/ClassesPage";
+import AddTecher from "./pages/Admin/AddTecher";
 function App() {
     useEffect(() => {
       AOS.init();
@@ -63,6 +64,7 @@ function App() {
           <Route path="users" element={<Users />} />
           <Route path="addCourse" element={<AddCourse />} />
           <Route path="addBlog" element={<BlogPost />} />
+          <Route path="addTecher" element={<AddTecher />} />
         </Route>
         <Route path="*" element={<NotFoundPage />} />
 
