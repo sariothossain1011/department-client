@@ -15,7 +15,8 @@ export default function BlogPost() {
       body: body,
       image: image,
     };
-    fetch("https://department-server-tau.vercel.app/api/v1/create-blog", {
+    console.log("data", article);
+    fetch("http://localhost:8080/api/v1/create-blog", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -29,7 +30,7 @@ export default function BlogPost() {
           toast.success("You Are Successfully Post!");
         }
       });
-    e.reset();
+    
   };
   return (
     <>
@@ -73,7 +74,7 @@ export default function BlogPost() {
           <Editor
             apiKey="38i1zd4i57jnnyxixqbg7blu6xsq1mrqv644n6dgpdpo54th"
             onInit={(evt, editor) => (editorRef.current = editor)}
-            initialValue="Write Your Blog..."
+            initialValue=""
             textareaName="description"
             init={{
               height: 400,
