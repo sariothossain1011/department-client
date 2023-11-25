@@ -12,22 +12,12 @@ function Users() {
               <th>Name</th>
               <th>Email</th>
               <th>Phone</th>
-              <th>Action</th>
-              <th></th>
+              <th>Delete</th>
+              <th>Admin</th>
             </tr>
           </thead>
           <UserTable ></UserTable>
-        
-          {/* foot */}
-          <tfoot>
-            <tr>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Phone</th>
-              <th>Action</th>
-              <th></th>
-            </tr>
-          </tfoot>
+      
         </table>
       </div>
     </div>

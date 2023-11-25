@@ -79,13 +79,99 @@ function Dashboard() {
             )}
             {details?.role == "admin" && (
               <>
-                <li className="mx-4 my-3">
-                  <Link
-                    to="addCourse"
-                    className="text-[16px] font-bold md:hover:text-[#256CF0] duration-500"
-                  >
-                    Add Course
-                  </Link>
+
+                <li>
+                  <div class="flex flex-col w-full">
+                    <button class="group  focus:outline-none">
+                      <div class="flex items-end w-40 justify-between h-auto  font-semibold ">
+                        <span class="truncate text-[17px]">Semester</span>
+                        <svg
+                          class="h-5 w-5"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                            clip-rule="evenodd"
+                          />
+                        </svg>
+                      </div>
+                      <div class="max-h-0 overflow-hidden duration-300 group-focus:max-h-40">
+                        <Link class="flex items-center h-8 py-2 px-4 text-sm " to="createSemester">
+                          Create Semester
+                        </Link>
+                      </div>
+                      <div class="max-h-0 overflow-hidden duration-300 group-focus:max-h-40">
+                        <Link class="flex items-center h-8 py-2 px-4 text-sm " to="semesterList">
+                          Semester List
+                        </Link>
+                      </div>
+                    </button>
+                  </div>
+                </li>
+                <li>
+                  <div class="flex flex-col w-full">
+                    <button class="group  focus:outline-none">
+                      <div class="flex items-end w-40 justify-between h-auto  font-semibold ">
+                        <span class="truncate text-[17px]">Subject</span>
+                        <svg
+                          class="h-5 w-5"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                            clip-rule="evenodd"
+                          />
+                        </svg>
+                      </div>
+                      <div class="max-h-0 overflow-hidden duration-300 group-focus:max-h-40">
+                        <Link class="flex items-center py-2 h-8 px-4 text-sm" to="createSubject">
+                          Create Subject
+                        </Link>
+                      </div>
+                      <div class="max-h-0 overflow-hidden duration-300 group-focus:max-h-40">
+                        <Link class="flex items-center py-2 h-8 px-4 text-sm " to="subjectLsit">
+                          Subject List
+                        </Link>
+                      </div>
+                    </button>
+                  </div>
+                </li>
+                <li>
+                  <div class="flex flex-col w-full">
+                    <button class="group  focus:outline-none">
+                      <div class="flex items-end w-40 justify-between h-auto  font-semibold ">
+                        <span class="truncate text-[17px]">Videos</span>
+                        <svg
+                          class="h-5 w-5"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                            clip-rule="evenodd"
+                          />
+                        </svg>
+                      </div>
+                      <div class="max-h-0 overflow-hidden duration-300 group-focus:max-h-40">
+                        <Link class="flex items-center h-8 py-2 px-4 text-sm " to="createVideo">
+                          Create Video
+                        </Link>
+                      </div>
+                      <div class="max-h-0 overflow-hidden duration-300 group-focus:max-h-40">
+                        <Link class="flex items-center h-8 py-2 px-4 text-sm " to="videoList">
+                          Videos List
+                        </Link>
+                      </div>
+                    </button>
+                  </div>
                 </li>
                 <li className="mx-4 my-3">
                   <Link
