@@ -1,6 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 
 import { Link, useNavigate } from "react-router-dom";
+import Loading from "../loading/Loading";
+import { useEffect } from "react";
 
 const Show = () => {
   const navigate = useNavigate();
@@ -13,7 +15,7 @@ const Show = () => {
   } = useQuery({
     queryKey: ["articles"],
     queryFn: () =>
-      fetch("http://localhost:8080/api/v1/find-blog-list", {
+      fetch("https://department-server-tau.vercel.app/api/v1/find-blog-list", {
         method: "GET",
         headers: {
           "content-type": "applicataion/json",
@@ -21,7 +23,11 @@ const Show = () => {
       }).then((res) => res.json()),
   });
   if (isLoading) {
-    return <div className="h-40 mt-10">Looading</div>;
+    return (
+      <div className="h-40 mt-10">
+        <Loading />
+      </div>
+    );
   }
 
   if (isError) {
@@ -29,12 +35,11 @@ const Show = () => {
   }
   console.log("articles", articles);
   const getText = (data) => {
-  
     const html = document.createElement("div");
     html.innerHTML = data;
     const plenText = html.textContent ? html.innerText : html.innerText;
- 
-    return plenText.slice(0,150).replace(/<[^>]+>/g, '')
+
+    return plenText.slice(0, 150).replace(/<[^>]+>/g, "");
   };
 
   const handlePost = (id) => {
@@ -42,7 +47,7 @@ const Show = () => {
     navigate(path);
   };
 
-  refetch();
+   
 
   return (
     <div className="overflow-x-hidden sm:overflow-x-hidden">
@@ -70,7 +75,7 @@ const Show = () => {
                         <h2
                           data-aos="flip-down"
                           data-aos-duration="3000"
-                          className="title-font text-3xl font-medium text-gray-600 mb-3"
+                          className="title-font text-xl sm:text-2xl font-medium text-gray-600 mb-3 line-clamp-2	"
                         >
                           {item.title}
                         </h2>

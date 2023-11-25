@@ -96,14 +96,17 @@ const Header = () => {
             CONTACT
           </Link>
         </li>
-        <li className="mx-4 my-6 md:my-0">
-          <Link
-            to="/admin"
-            className="text-[14px] font-bold md:hover:text-[#256CF0] duration-500"
-          >
-            Dashbord
-          </Link>
-        </li>
+        {user && (
+          <li className="mx-4 my-6 md:my-0">
+            <Link
+              to="/admin"
+              className="text-[14px] font-bold md:hover:text-[#256CF0] duration-500"
+            >
+              Dashbord
+            </Link>
+          </li>
+        )}
+
         {user ? (
           <button
             className="bg-[#256CF0] text-[14px] font-bold text-white font-[Poppins] duration-500 px-6 py-2 mx-4 hover:bg-[#256CF0] rounded "
