@@ -31,6 +31,12 @@ import DetailsTeacher from "./components/teacher/DetailsTeacher";
 import SubjectsPage from "./pages/courses/SubjectsPage";
 import ClassesPage from "./pages/courses/ClassesPage";
 import AddTecher from "./pages/Admin/AddTecher";
+import CreateSemesterPage from "./pages/Semester/CreateSemesterPage";
+import SemesterListPage from "./pages/Semester/SemesterListPage";
+import CreateSubjectPage from "./pages/Subject/CreateSubjectPage";
+import SubjectListPage from "./pages/Subject/SubjectListPage";
+import CreateVideoPage from "./pages/Video/CreateVideoPage";
+import VideoListPage from "./pages/Video/VideoListPage";
 function App() {
     useEffect(() => {
       AOS.init();
@@ -65,6 +71,12 @@ function App() {
           <Route path="addCourse" element={<AddCourse />} />
           <Route path="addBlog" element={<BlogPost />} />
           <Route path="addTecher" element={<AddTecher />} />
+          <Route path="createSemester" element={<CreateSemesterPage />} />
+          <Route path="semesterList" element={<SemesterListPage />} />
+          <Route path="createSubject" element={<CreateSubjectPage />} />
+          <Route path="subjectLsit" element={<SubjectListPage />} />
+          <Route path="createVideo" element={<CreateVideoPage />} />
+          <Route path="videoList" element={<VideoListPage />} />
         </Route>
         <Route path="*" element={<NotFoundPage />} />
 
