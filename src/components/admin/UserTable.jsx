@@ -74,7 +74,7 @@ function UserTable() {
         },
       };
       const res = await axios.put(
-        `http://localhost:8080/api/v1/update-admin/${adminId}`,
+        `https://department-server-tau.vercel.app/api/v1/update-admin/${adminId}`,
         "admin",
         config
       );
@@ -105,7 +105,7 @@ function UserTable() {
               <div className="flex items-center space-x-3">
                 <div className="avatar">
                   <div className="mask mask-squircle w-12 h-12">
-                    <img src={item.photo} alt="Avatar Tailwind CSS Component" />
+                    <img src={item.image} alt={item.name} />
                   </div>
                 </div>
                 <div>
@@ -136,7 +136,7 @@ function UserTable() {
                   <input
                     type="checkbox"
                     onChange={() => handleCheckboxChange(item._id)}
-                    className="toggle toggle-sm toggle-info"
+                    className="toggle toggle-sm toggle-error"
                     checked={adminId === item._id}
                   />
                 )}

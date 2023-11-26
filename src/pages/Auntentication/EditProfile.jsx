@@ -5,6 +5,7 @@ import auth from "../../firebase/firebase.init";
 import Picture from "../../components/ProfilePicture";
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
 const EditProfile = () => {
   const [user] = useAuthState(auth);
   const token = localStorage.getItem("accessToken");
@@ -46,9 +47,7 @@ const EditProfile = () => {
       .then((data) => {
         console.log("updated data 🥰😥😘", data);
         if (data) {
-          // const accessToken = data?.token;
-          // localStorage.setItem("accessToken", user.accessToken);
-          // toast.success("You are Successfully Update Profile!");
+          toast.success("You are Successfully Update Profile!");
 
           reset();
         }
