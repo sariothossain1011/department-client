@@ -39,7 +39,7 @@ function Dashboard() {
             <CgMenuGridR className="h-6 w-6" />
           </label>
         </div>
-        <div className="drawer-side">
+        <div className="drawer-side z-[999]" >
           <label
             htmlFor="my-drawer-2"
             aria-label="close sidebar"
