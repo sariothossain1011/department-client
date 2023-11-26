@@ -45,7 +45,6 @@ const EditProfile = () => {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log("updated data 🥰😥😘", data);
         if (data) {
           toast.success("You are Successfully Update Profile!");
 

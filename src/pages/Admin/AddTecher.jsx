@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import auth from "../../firebase/firebase.init";
 import Picture from "../../components/ProfilePicture";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 function AddTecher() {
   const [user] = useAuthState(auth);
@@ -33,11 +34,10 @@ function AddTecher() {
       facebookLink: data.facebook,
       designation: data.designation,
     };
-    console.log("users 😘😍😍", teacher);
     const addTeacher = async () => {
       try {
         const { data } = await axios.post(
-          "http://localhost:8080/api/v1/create-teacher",
+          "https://department-server-tau.vercel.app/api/v1/create-teacher",
           teacher,
           {
             method: "POST",
@@ -46,15 +46,16 @@ function AddTecher() {
             },
           }
         );
-        if (data) {
-          console.log("add teacher 🥰😘😍", data);
+        if (data.status == "success") {
+          toast.success("You are Successfully add teacher!");
+          reset();
         }
       } catch (error) {
         console.error(error);
       }
     };
-    addTeacher()
-  }
+    addTeacher();
+  };
 
   return (
     <div>
