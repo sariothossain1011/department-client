@@ -13,7 +13,6 @@ const Picture = ({ pRef,  register, picture, setPicture }) => {
 
   const handleImage = (e) => {
     let file = e.target.files[0];
-    console.log(file);
     if (
       file.type !== "image/jpeg" &&
       file.type !== "image/png" &&
@@ -33,7 +32,6 @@ const Picture = ({ pRef,  register, picture, setPicture }) => {
       setImage(event.target.result);
     };
   };
-  console.log("image", image);
   return (
     <div className="">
       <input

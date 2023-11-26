@@ -33,7 +33,6 @@ const Show = () => {
   if (isError) {
     return <span>Error: {error.message}</span>;
   }
-  console.log("articles", articles);
   const getText = (data) => {
     const html = document.createElement("div");
     html.innerHTML = data;

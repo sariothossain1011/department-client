@@ -1,10 +1,10 @@
-import React from 'react'
-import UserTable from '../../components/admin/UserTable';
+import React from "react";
+import TeacherTable from "../../../components/admin/TeacherTable";
 
-function Users() {
+function Teachers() {
   return (
     <div>
-      <div className="">
+      <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
           <thead>
@@ -16,11 +16,11 @@ function Users() {
               <th>Admin</th>
             </tr>
           </thead>
-          <UserTable></UserTable>
+          <TeacherTable></TeacherTable>
         </table>
       </div>
     </div>
   );
 }
 
-export default Users
+export default Teachers;

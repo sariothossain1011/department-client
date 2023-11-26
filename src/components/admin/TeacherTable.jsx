@@ -5,7 +5,7 @@ import { AiOutlineDelete } from "react-icons/ai";
 import { PiToggleLeftThin } from "react-icons/pi";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-function UserTable() {
+function TeacherTable() {
   const navigate = useNavigate();
 
   const [user, setUserData] = useState([]);
@@ -28,14 +28,14 @@ function UserTable() {
         },
       };
       const res = await axios.delete(
-        `https://department-server-tau.vercel.app/api/v1/delete-user/${id}`,
+        `https://department-server-tau.vercel.app/api/v1/delete-teacher/${id}`,
         config
       );
       if (res.status === 200) {
-        navigate("/admin/users");
-        return <>{toast.success("User Delete Successfull")}</>;
+        navigate("/admin/teachers");
+        return <>{toast.success("Teacher Delete Successfull")}</>;
       } else {
-        return <>{toast.error("User Delete Fail")}</>;
+        return <>{toast.error("Teacher Delete Fail")}</>;
       }
     } catch (error) {
       return <>{toast.error(error)}</>;
@@ -52,7 +52,7 @@ function UserTable() {
         },
       };
       const { data } = await axios.get(
-        `https://department-server-tau.vercel.app/api/v1/find-users`,
+        `https://department-server-tau.vercel.app/api/v1/find-teacher-list`,
         config
       );
       const userData = await data.data;
@@ -72,7 +72,7 @@ function UserTable() {
         },
       };
       const res = await axios.put(
-        `https://department-server-tau.vercel.app/api/v1/update-admin/${adminId}`,
+        `https://department-server-tau.vercel.app/api/v1/admin/${adminId}`,
         "admin",
         config
       );
@@ -95,7 +95,7 @@ function UserTable() {
   };
 
   return (
-    <tbody className="">
+    <tbody>
       {user &&
         user.map((item, index) => (
           <tr key={index}>
@@ -166,4 +166,4 @@ function UserTable() {
   );
 }
 
-export default UserTable;
+export default TeacherTable;

@@ -63,7 +63,6 @@ const SinglePage = () => {
           `https://department-server-tau.vercel.app/api/v1/find-blog-data/${id}`
         );
         if (data.data) {
-          console.log(data.data);
           setIsLoading(false);
           setBlog(data.data);
         }
@@ -76,7 +75,6 @@ const SinglePage = () => {
     }
     getBlog();
   }, []);
-  console.log("data", blog);
 
   if (isLoading) {
     return (
