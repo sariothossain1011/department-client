@@ -73,7 +73,6 @@ const EditProfile = () => {
     getUser();
   }, []);
 
-  console.log("user data", details);
   return (
     <div>
       <div className="main-content">

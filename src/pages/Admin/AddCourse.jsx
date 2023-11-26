@@ -23,7 +23,6 @@ function AddCourse() {
   } = useFieldArray({ control, name: "course" });
   const navigate = useNavigate();
   courseFields.map(item => console.log("item", item))
-  console.log(register.module);
   return (
     <div className="main-content">
       <div className="container-fluid mt-7" id="#edit">

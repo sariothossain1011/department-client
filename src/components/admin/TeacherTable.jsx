@@ -31,7 +31,6 @@ function TeacherTable() {
         `https://department-server-tau.vercel.app/api/v1/delete-teacher/${id}`,
         config
       );
-      console.log("....", res);
       if (res.status === 200) {
         navigate("/admin/teachers");
         return <>{toast.success("Teacher Delete Successfull")}</>;
@@ -57,7 +56,6 @@ function TeacherTable() {
         config
       );
       const userData = await data.data;
-      console.log(userData);
       setUserData(userData);
     } catch (error) {
       console.log("Subject Error", error);

@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const SingleTeacherCard = ({singleTeacher}) => {
-    console.log(singleTeacher);
 
     const {Photo, name, email, number, id} = singleTeacher || {};
     

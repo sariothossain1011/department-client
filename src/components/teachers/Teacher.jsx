@@ -15,12 +15,10 @@ const Teacher = () => {
     { name: 'abc', id: 8, number: '018', email: 'abc@gmail.com', Photo: 'https://i.ibb.co/YXT8sMy/P3-OLGJ1-copy-1.png' },
     { name: 'abc', id: 9, number: '018', email: 'abc@gmail.com', Photo: 'https://i.ibb.co/YXT8sMy/P3-OLGJ1-copy-1.png' },
   ]
-  // console.log(fakeTeachers);
 
   // Stats
   const [slice, setSlice] = useState(false);
   const [sliceJob, setSliceJob] = useState(fakeTeachers);
-  console.log(fakeTeachers);
   
 
   useEffect(() => {

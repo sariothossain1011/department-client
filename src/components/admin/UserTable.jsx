@@ -31,7 +31,6 @@ function UserTable() {
         `https://department-server-tau.vercel.app/api/v1/delete-user/${id}`,
         config
       );
-      console.log("....", res);
       if (res.status === 200) {
         navigate("/admin/users");
         return <>{toast.success("User Delete Successfull")}</>;
@@ -57,7 +56,6 @@ function UserTable() {
         config
       );
       const userData = await data.data;
-      console.log(userData);
       setUserData(userData);
     } catch (error) {
       console.log("Subject Error", error);
