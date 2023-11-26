@@ -75,7 +75,7 @@ const EditProfile = () => {
 
   return (
     <div>
-      <div className="main-content">
+      <div className="main-content z-auto">
         <div className="header pb-5 pt-5 pt-lg-8 d-flex align-items-center bg-header">
           <span className="mask bg-gradient-default opacity-8"></span>
           <div className="container-fluid d-flex align-items-center">

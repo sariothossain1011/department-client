@@ -95,7 +95,7 @@ function UserTable() {
   };
 
   return (
-    <tbody>
+    <tbody className="">
       {user &&
         user.map((item, index) => (
           <tr key={index}>
@@ -121,8 +121,8 @@ function UserTable() {
                 />
               </button>
             </td>
-            <td >
-            <button>
+            <td>
+              <button>
                 {item?.role === "admin" ? (
                   <input
                     type="checkbox"
@@ -160,7 +160,6 @@ function UserTable() {
                 )}
               </button>
             </td> */}
-
           </tr>
         ))}
     </tbody>
