@@ -1,32 +1,96 @@
-import React, { Fragment, useRef, useState } from "react";
+import React, { Fragment, useEffect, useRef, useState } from "react";
 
+import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
 const CreateSubject = () => {
-  const [imageUrl, setImageUrl] = useState("");
+  const navigate = useNavigate();
 
-  const handleImageUpload = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setImageUrl(reader.result);
+  const [photo, setPhoto] = useState("");
+
+  const [subjectTitle, setSubjectTitle] = useState("");
+  const [subjectDescription, setSubjectDescription] = useState("");
+  const [courseId, setCourseId] = useState("");
+  const [semesterData, setSemesterData] = useState([]);
+
+  useEffect(() => {
+    fetchCourseData();
+  }, []);
+
+  const HandleSubjectData = async (e) => {
+    e.preventDefault();
+    try {
+      const subjectData = new FormData();
+      subjectData.append("photo", photo);
+      subjectData.append("subjectTitle", subjectTitle);
+      subjectData.append("subjectDescription", subjectDescription);
+      subjectData.append("courseId", courseId);
+      const token = await localStorage.getItem("accessToken");
+
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`, // Assuming it's a Bearer token
+        },
       };
-      reader.readAsDataURL(file);
+
+      const { data } = await axios.post(
+        `https://department-server-tau.vercel.app/api/v1/create-subject`,
+        subjectData,
+        config
+      );
+      if (data.error) {
+        return <>{toast.error("Course Create Fail")}</>;
+      } else {
+        navigate("/admin/createSubject");
+        return <>{toast.success("Course Create Successfull")}</>;
+      }
+    } catch (error) {
+      return <>{toast.error(error)}</>;
     }
+  };
+
+  const fetchCourseData = async () => {
+    try {
+      const token = await localStorage.getItem("accessToken");
+
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`, // Assuming it's a Bearer token
+        },
+      };
+      const { data } = await axios.get(
+        `https://department-server-tau.vercel.app/api/v1/find-course-list`,
+        config
+      );
+      const courseData = await data.data;
+      setSemesterData(courseData);
+    } catch (error) {
+      return <>{toast.error(error)}</>;
+    }
+  };
+
+  const handleSelectChange = (e) => {
+    const selectedSemesterId = e.target.value;
+    setCourseId(selectedSemesterId);
   };
 
   return (
     <Fragment>
-      <div className="container-fluid mt-7">
+      <div className="container-fluid mt-5">
         <div className="row">
           <div className="col-md-10 m-auto  mb-4">
             <div className="card shadow">
               <div className="card-body">
-                <form class="w-full ">
-                  <div class="flex flex-wrap w-full  mb-6">
-                    {imageUrl && (
-                      <img src={imageUrl} className="w-full h-[400px]" />
+                <form class="w-full">
+                  <div class="flex flex-wrap w-full  ">
+                    {photo && (
+                      <img
+                        src={URL.createObjectURL(photo)}
+                        className="w-full h-[350px]"
+                      />
                     )}
-                    <div class="flex w-full h-52 items-center justify-center bg-grey-lighter">
+                    <div class="flex w-full h-44 items-center justify-center bg-grey-lighter">
                       <label class="w-64 flex flex-col items-center px-4 py-6 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue ">
                         <svg
                           class="w-8 h-8"
@@ -41,59 +105,87 @@ const CreateSubject = () => {
                         </span>
                         <input
                           type="file"
-                          onChange={handleImageUpload}
+                          name="photo"
+                          accept="image/*"
+                          onChange={(e) => setPhoto(e.target.files[0])}
                           className="hidden"
                         />
                       </label>
                     </div>
+                    {!photo && (
+                      <p class="text-red-500 text-xs text-center italic">
+                        Please select photo field.
+                      </p>
+                    )}
 
-                    <div class="w-full   mb-6 ">
+                    <div class="w-full mb-2">
                       <label
-                        class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                        for="grid-first-name"
+                        class="block uppercase tracking-wide text-gray-700 text-[17px] font-bold mb-2"
+                        for="grid-last-name"
                       >
                         Subject Title
                       </label>
                       <input
                         class="appearance-none block w-full bg-gray-200 text-gray-700 border  rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-                        id="grid-first-name"
                         type="text"
-                        placeholder="Enter Subject Title"
+                        placeholder="Enter subject title"
+                        value={subjectTitle}
+                        onChange={(e) => setSubjectTitle(e.target.value)}
                       />
-                      {/* <p class="text-red-500 text-xs italic">Please fill out this field.</p> */}
+                      {!subjectTitle && (
+                        <p class="text-red-500 text-xs italic">
+                          Please fill out this field.
+                        </p>
+                      )}
                     </div>
-                    <div class="w-full   mb-6 ">
+                    <div class="w-full mb-2 ">
                       <label
-                        class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                        class="block uppercase tracking-wide text-gray-700 text-[17px] font-bold mb-2"
                         for="grid-first-name"
                       >
                         Subject Description
                       </label>
                       <input
-                       class="appearance-none block w-full bg-gray-200 text-gray-700 border  rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-                        id="grid-last-name"
+                        class="appearance-none block w-full bg-gray-200 text-gray-700 border  rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
                         type="text"
-                        placeholder="Enter Subject Description"
+                        placeholder="Enter subject name"
+                        value={subjectDescription}
+                        onChange={(e) => setSubjectDescription(e.target.value)}
                       />
+                      {!subjectTitle && (
+                        <p class="text-red-500 text-xs italic">
+                          Please fill out this field.
+                        </p>
+                      )}
                     </div>
-                    <div class="w-full   mb-6 ">
-                      <label
-                        class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                        for="grid-first-name"
+                    <div className="w-full mb-2">
+                      <select
+                        className="select select-bordered w-full"
+                        onChange={(e) => handleSelectChange(e)}
                       >
-                        Semester ID
-                      </label>
-                      <input
-                       class="appearance-none block w-full bg-gray-200 text-gray-700 border  rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-                       id="grid-last-name"
-                        type="text"
-                        placeholder="Enter Semester ID"
-                      />
+                        <option disabled selected>
+                          Select Semester ID
+                        </option>
+                        {semesterData &&
+                          semesterData.map((item) => {
+                            return (
+                              <option value={item._id}>
+                                {item.semesterName}
+                              </option>
+                            );
+                          })}
+                      </select>
+                      {!courseId && (
+                        <p class="text-red-500 text-xs italic">
+                          Please fill out this field.
+                        </p>
+                      )}
                     </div>
                     <div className=" my-10 w-full">
                       <button
+                        onClick={HandleSubjectData}
                         type="button"
-                        className=" w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm  py-2 bg-blue-600 text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200 sm:mt-0  sm:w-full sm:text-sm"
+                        className=" w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm  py-2 bg-blue-600 text-[20px] font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200 sm:mt-0  sm:w-full sm:text-sm"
                       >
                         Create Subject
                       </button>
@@ -109,5 +201,4 @@ const CreateSubject = () => {
   );
 };
 
-
-export default CreateSubject
+export default CreateSubject;
