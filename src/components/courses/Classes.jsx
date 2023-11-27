@@ -12,7 +12,6 @@ const Classes = () => {
   const [activeVid, setActiveVid] = useState("https://www.youtube.com/watch?v=4kWyFSQhJpc");
   const [actTitle, setActTitle] = useState("video 01");
   const [description, setActiveDescription] = useState("We will learn DFS of Graph in this problem");
-  console.log(subjectId)
 
   useEffect(() => {
     fetchVideoData(subjectId); // Pass the ID to fetch video data

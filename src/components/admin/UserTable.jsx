@@ -31,7 +31,6 @@ function UserTable() {
         `https://department-server-tau.vercel.app/api/v1/delete-user/${id}`,
         config
       );
-      console.log("....", res);
       if (res.status === 200) {
         navigate("/admin/users");
         return <>{toast.success("User Delete Successfull")}</>;
@@ -57,7 +56,6 @@ function UserTable() {
         config
       );
       const userData = await data.data;
-      console.log(userData);
       setUserData(userData);
     } catch (error) {
       console.log("Subject Error", error);
@@ -74,7 +72,7 @@ function UserTable() {
         },
       };
       const res = await axios.put(
-        `http://localhost:8080/api/v1/update-admin/${adminId}`,
+        `https://department-server-tau.vercel.app/api/v1/update-admin/${adminId}`,
         "admin",
         config
       );
@@ -97,7 +95,7 @@ function UserTable() {
   };
 
   return (
-    <tbody>
+    <tbody className="">
       {user &&
         user.map((item, index) => (
           <tr key={index}>
@@ -105,7 +103,7 @@ function UserTable() {
               <div className="flex items-center space-x-3">
                 <div className="avatar">
                   <div className="mask mask-squircle w-12 h-12">
-                    <img src={item.photo} alt="Avatar Tailwind CSS Component" />
+                    <img src={item.image} alt={item.name} />
                   </div>
                 </div>
                 <div>
@@ -123,8 +121,8 @@ function UserTable() {
                 />
               </button>
             </td>
-            <td >
-            <button>
+            <td>
+              <button>
                 {item?.role === "admin" ? (
                   <input
                     type="checkbox"
@@ -136,7 +134,7 @@ function UserTable() {
                   <input
                     type="checkbox"
                     onChange={() => handleCheckboxChange(item._id)}
-                    className="toggle toggle-sm toggle-info"
+                    className="toggle toggle-sm toggle-error"
                     checked={adminId === item._id}
                   />
                 )}
@@ -162,7 +160,6 @@ function UserTable() {
                 )}
               </button>
             </td> */}
-
           </tr>
         ))}
     </tbody>

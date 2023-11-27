@@ -15,8 +15,7 @@ export default function BlogPost() {
       body: body,
       image: image,
     };
-    console.log("data", article);
-    fetch("http://localhost:8080/api/v1/create-blog", {
+    fetch("https://department-server-tau.vercel.app/api/v1/create-blog", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -25,12 +24,10 @@ export default function BlogPost() {
     })
       .then((res) => res.json())
       .then((insertData) => {
-        console.log(insertData.status == "success");
         if (insertData.status == "success") {
           toast.success("You Are Successfully Post!");
         }
       });
-    
   };
   return (
     <>

@@ -37,6 +37,7 @@ import CreateSubjectPage from "./pages/Subject/CreateSubjectPage";
 import SubjectListPage from "./pages/Subject/SubjectListPage";
 import CreateVideoPage from "./pages/Video/CreateVideoPage";
 import VideoListPage from "./pages/Video/VideoListPage";
+import Teachers from "./pages/Admin/Dashbord/Teachers";
 function App() {
     useEffect(() => {
       AOS.init();
@@ -77,6 +78,7 @@ function App() {
           <Route path="subjectLsit" element={<SubjectListPage />} />
           <Route path="createVideo" element={<CreateVideoPage />} />
           <Route path="videoList" element={<VideoListPage />} />
+          <Route path="teachers" element={<Teachers />} />
         </Route>
         <Route path="*" element={<NotFoundPage />} />
 

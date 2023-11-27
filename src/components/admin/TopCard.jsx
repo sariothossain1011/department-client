@@ -27,11 +27,11 @@ function TopCard() {
     },
   ];
   return (
-    <div className="grid grid-cols-4  gap-4 cursor-pointer">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4  gap-4 cursor-pointer">
       {cards &&
         cards.map((card, i) => (
           <div
-            className="flex items-center p-6 justify-between bg-white rounded-lg gap-2 shadow-md"
+            className="flex max-w-full overflow-hidden  items-center p-6 justify-between bg-white rounded-lg gap-2 shadow-md"
             key={i}
           >
             <div>

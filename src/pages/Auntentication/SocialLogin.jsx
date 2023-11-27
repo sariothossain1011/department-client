@@ -42,12 +42,12 @@ const SocialLogin = () => {
      }
     return (
       <div className="social-media">
-        <button
+        {/* <button
           className="social-icon hover:text-primary text-[#115CE8] border-primary border-2"
           onClick={() => signInWithFacebook()}
         >
           <BsFacebook />
-        </button>
+        </button> */}
 
         <button
           className="social-icon hover:text-primary text-secondary border-primary border-2"

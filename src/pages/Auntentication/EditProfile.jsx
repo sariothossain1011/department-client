@@ -5,6 +5,7 @@ import auth from "../../firebase/firebase.init";
 import Picture from "../../components/ProfilePicture";
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
 const EditProfile = () => {
   const [user] = useAuthState(auth);
   const token = localStorage.getItem("accessToken");
@@ -44,11 +45,8 @@ const EditProfile = () => {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log("updated data 🥰😥😘", data);
         if (data) {
-          // const accessToken = data?.token;
-          // localStorage.setItem("accessToken", user.accessToken);
-          // toast.success("You are Successfully Update Profile!");
+          toast.success("You are Successfully Update Profile!");
 
           reset();
         }
@@ -75,10 +73,9 @@ const EditProfile = () => {
     getUser();
   }, []);
 
-  console.log("user data", details);
   return (
     <div>
-      <div className="main-content">
+      <div className="main-content z-auto">
         <div className="header pb-5 pt-5 pt-lg-8 d-flex align-items-center bg-header">
           <span className="mask bg-gradient-default opacity-8"></span>
           <div className="container-fluid d-flex align-items-center">

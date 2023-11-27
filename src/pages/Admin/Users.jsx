@@ -4,7 +4,7 @@ import UserTable from '../../components/admin/UserTable';
 function Users() {
   return (
     <div>
-      <div className="overflow-x-auto">
+      <div className="">
         <table className="table">
           {/* head */}
           <thead>
@@ -16,8 +16,7 @@ function Users() {
               <th>Admin</th>
             </tr>
           </thead>
-          <UserTable ></UserTable>
-      
+          <UserTable></UserTable>
         </table>
       </div>
     </div>

@@ -12,7 +12,6 @@ export const getUser = async (token) => {
         },
       }
     );
-    console.log("response 😘 😍 😎", data);
     return data;
   } catch (error) {
     console.error(error);

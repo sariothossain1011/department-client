@@ -3,6 +3,8 @@ import { Link, Outlet } from "react-router-dom";
 import "../admin.css";
 import axios from "axios";
 import { useState } from "react";
+import { CgMenuGridR } from "react-icons/cg";
+
 function Dashboard() {
   const token = localStorage.getItem("accessToken");
   const [details, setDetails] = useState();
@@ -28,19 +30,16 @@ function Dashboard() {
     getUser();
   }, []);
   return (
-    <div className="admin-dashbord bg-[#F7F7FA]">
-      <div className="drawer lg:drawer-open">
+    <div className="admin-dashbord bg-[#F7F7FA] ">
+      <div className="drawer md:drawer-open z-auto">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-content flex flex-col  justify-center">
+        <div className="drawer-content flex flex-col justify-start">
           {/* Page content here */}
-          <label
-            htmlFor="my-drawer-2"
-            className="btn btn-primary drawer-button lg:hidden"
-          >
-            Open drawer
+          <label htmlFor="my-drawer-2" className=" drawer-button md:hidden">
+            <CgMenuGridR className="h-6 w-6" />
           </label>
         </div>
-        <div className="drawer-side">
+        <div className="drawer-side z-[999]" >
           <label
             htmlFor="my-drawer-2"
             aria-label="close sidebar"
@@ -79,7 +78,6 @@ function Dashboard() {
             )}
             {details?.role == "admin" && (
               <>
-
                 <li>
                   <div class="flex flex-col w-full">
                     <button class="group  focus:outline-none">
@@ -99,12 +97,18 @@ function Dashboard() {
                         </svg>
                       </div>
                       <div class="max-h-0 overflow-hidden duration-300 group-focus:max-h-40">
-                        <Link class="flex items-center h-8 py-2 px-4 text-sm " to="createSemester">
+                        <Link
+                          class="flex items-center h-8 py-2 px-4 text-sm "
+                          to="createSemester"
+                        >
                           Create Semester
                         </Link>
                       </div>
                       <div class="max-h-0 overflow-hidden duration-300 group-focus:max-h-40">
-                        <Link class="flex items-center h-8 py-2 px-4 text-sm " to="semesterList">
+                        <Link
+                          class="flex items-center h-8 py-2 px-4 text-sm "
+                          to="semesterList"
+                        >
                           Semester List
                         </Link>
                       </div>
@@ -130,12 +134,18 @@ function Dashboard() {
                         </svg>
                       </div>
                       <div class="max-h-0 overflow-hidden duration-300 group-focus:max-h-40">
-                        <Link class="flex items-center py-2 h-8 px-4 text-sm" to="createSubject">
+                        <Link
+                          class="flex items-center py-2 h-8 px-4 text-sm"
+                          to="createSubject"
+                        >
                           Create Subject
                         </Link>
                       </div>
                       <div class="max-h-0 overflow-hidden duration-300 group-focus:max-h-40">
-                        <Link class="flex items-center py-2 h-8 px-4 text-sm " to="subjectLsit">
+                        <Link
+                          class="flex items-center py-2 h-8 px-4 text-sm "
+                          to="subjectLsit"
+                        >
                           Subject List
                         </Link>
                       </div>
@@ -161,12 +171,18 @@ function Dashboard() {
                         </svg>
                       </div>
                       <div class="max-h-0 overflow-hidden duration-300 group-focus:max-h-40">
-                        <Link class="flex items-center h-8 py-2 px-4 text-sm " to="createVideo">
+                        <Link
+                          class="flex items-center h-8 py-2 px-4 text-sm "
+                          to="createVideo"
+                        >
                           Create Video
                         </Link>
                       </div>
                       <div class="max-h-0 overflow-hidden duration-300 group-focus:max-h-40">
-                        <Link class="flex items-center h-8 py-2 px-4 text-sm " to="videoList">
+                        <Link
+                          class="flex items-center h-8 py-2 px-4 text-sm "
+                          to="videoList"
+                        >
                           Videos List
                         </Link>
                       </div>
@@ -179,6 +195,14 @@ function Dashboard() {
                     className="text-[16px] font-bold md:hover:text-[#256CF0] duration-500"
                   >
                     Add Teacher
+                  </Link>
+                </li>
+                <li className="mx-4 my-3">
+                  <Link
+                    to="teachers"
+                    className="text-[16px] font-bold md:hover:text-[#256CF0] duration-500"
+                  >
+                    All Teacher
                   </Link>
                 </li>
               </>
