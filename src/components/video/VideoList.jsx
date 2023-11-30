@@ -6,6 +6,7 @@ import moment from "moment";
 import { FaRegEdit } from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { API } from "../../helpers/secret";
 
 const VideoList = () => {
   const navigate = useNavigate();
@@ -28,7 +29,7 @@ const VideoList = () => {
         },
       };
       const res = await axios.delete(
-        `https://department-server-tau.vercel.app/api/v1/delete-video/${id}`,
+        `${API}delete-video/${id}`,
         config
       );
       if (res.status === 200) {
@@ -52,7 +53,7 @@ const VideoList = () => {
         },
       };
       const { data } = await axios.get(
-        `https://department-server-tau.vercel.app/api/v1/find-video-list`,
+        `${API}find-video-list`,
         config
       );
       const VideoData = await data.data;

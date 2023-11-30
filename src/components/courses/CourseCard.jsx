@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { Fragment, useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
+import { API } from '../../helpers/secret';
 
 const CourseCard = () => {
 
@@ -14,7 +15,7 @@ const CourseCard = () => {
   
   const fetchData = async () => {
     try {
-      const {data} = await axios.get("https://department-server-tau.vercel.app/api/v1/find-course-list");
+      const {data} = await axios.get(`${API}find-course-list`);
       
       const semesterData = await data.data ;
       setSemester(semesterData)

@@ -6,6 +6,7 @@ import moment from "moment";
 import { FaRegEdit } from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { API } from "../../helpers/secret";
 
 const SubjectList = () => {
   const navigate = useNavigate();
@@ -28,7 +29,7 @@ const SubjectList = () => {
         },
       };
       const res = await axios.delete(
-        `https://department-server-tau.vercel.app/api/v1/delete-subject/${id}`,
+        `${API}delete-subject/${id}`,
         config
       );
       if (res.status === 200) {
@@ -52,7 +53,7 @@ const SubjectList = () => {
         },
       };
       const { data } = await axios.get(
-        `https://department-server-tau.vercel.app/api/v1/find-subject-list`,
+        `${API}find-subject-list`,
         config
       );
       const subjectData = await data.data;

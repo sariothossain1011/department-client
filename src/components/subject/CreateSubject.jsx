@@ -4,6 +4,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
+import { API } from "../../helpers/secret";
 const CreateSubject = () => {
   const navigate = useNavigate();
 
@@ -35,7 +36,7 @@ const CreateSubject = () => {
       };
 
       const { data } = await axios.post(
-        `https://department-server-tau.vercel.app/api/v1/create-subject`,
+        `${API}create-subject`,
         subjectData,
         config
       );
@@ -60,7 +61,7 @@ const CreateSubject = () => {
         },
       };
       const { data } = await axios.get(
-        `https://department-server-tau.vercel.app/api/v1/find-course-list`,
+        `${API}find-course-list`,
         config
       );
       const courseData = await data.data;

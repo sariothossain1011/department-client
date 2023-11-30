@@ -7,6 +7,7 @@ import moment from "moment";
 import { FaRegEdit } from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { API } from "../../helpers/secret";
 
 const SemesterList = () => {
   const navigate = useNavigate();
@@ -29,7 +30,7 @@ const SemesterList = () => {
         },
       };
       const res = await axios.post(
-        `https://department-server-tau.vercel.app/api/v1/delete-course/${id}`,
+        `${API}delete-course/${id}`,
         config
       );
       if (res.status === 200) {
@@ -53,7 +54,7 @@ const SemesterList = () => {
         },
       };
       const { data } = await axios.get(
-        `https://department-server-tau.vercel.app/api/v1/find-course-list`,
+        `${API}find-course-list`,
         config
       );
       const courseData = await data.data;
