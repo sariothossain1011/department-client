@@ -28,7 +28,7 @@ const CreateSemester = () => {
       };
 
       const { data } = await axios.post(
-        `https://department-server-tau.vercel.app/api/v1/create-course`,
+        `http://localhost:8080/api/v1/create-course`,
         semesterData,
         config
       );

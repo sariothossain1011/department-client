@@ -28,7 +28,7 @@ function UserTable() {
         },
       };
       const res = await axios.delete(
-        `https://department-server-tau.vercel.app/api/v1/delete-user/${id}`,
+        `http://localhost:8080/api/v1/delete-user/${id}`,
         config
       );
       if (res.status === 200) {
@@ -52,7 +52,7 @@ function UserTable() {
         },
       };
       const { data } = await axios.get(
-        `https://department-server-tau.vercel.app/api/v1/find-users`,
+        `http://localhost:8080/api/v1/find-users`,
         config
       );
       const userData = await data.data;
@@ -72,7 +72,7 @@ function UserTable() {
         },
       };
       const res = await axios.put(
-        `https://department-server-tau.vercel.app/api/v1/update-admin/${adminId}`,
+        `http://localhost:8080/api/v1/update-admin/${adminId}`,
         "admin",
         config
       );

@@ -12,7 +12,7 @@ function Dashboard() {
   const getUser = async () => {
     try {
       const { data } = await axios.get(
-        "https://department-server-tau.vercel.app/api/v1/find-user",
+        "http://localhost:8080/api/v1/find-user",
         {
           method: "GET",
           headers: {
@@ -22,6 +22,7 @@ function Dashboard() {
         }
       );
       setDetails(data.data);
+      console.log("data🥰😘", data.data);
     } catch (error) {
       console.error(error);
     }
@@ -39,7 +40,7 @@ function Dashboard() {
             <CgMenuGridR className="h-6 w-6" />
           </label>
         </div>
-        <div className="drawer-side z-[999]" >
+        <div className="drawer-side z-[999]">
           <label
             htmlFor="my-drawer-2"
             aria-label="close sidebar"

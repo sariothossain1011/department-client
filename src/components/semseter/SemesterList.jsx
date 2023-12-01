@@ -29,7 +29,7 @@ const SemesterList = () => {
         },
       };
       const res = await axios.post(
-        `https://department-server-tau.vercel.app/api/v1/delete-course/${id}`,
+        `http://localhost:8080/api/v1/delete-course/${id}`,
         config
       );
       if (res.status === 200) {
@@ -53,7 +53,7 @@ const SemesterList = () => {
         },
       };
       const { data } = await axios.get(
-        `https://department-server-tau.vercel.app/api/v1/find-course-list`,
+        `http://localhost:8080/api/v1/find-course-list`,
         config
       );
       const courseData = await data.data;

@@ -28,7 +28,7 @@ const VideoList = () => {
         },
       };
       const res = await axios.delete(
-        `https://department-server-tau.vercel.app/api/v1/delete-video/${id}`,
+        `http://localhost:8080/api/v1/delete-video/${id}`,
         config
       );
       if (res.status === 200) {
@@ -52,7 +52,7 @@ const VideoList = () => {
         },
       };
       const { data } = await axios.get(
-        `https://department-server-tau.vercel.app/api/v1/find-video-list`,
+        `http://localhost:8080/api/v1/find-video-list`,
         config
       );
       const VideoData = await data.data;

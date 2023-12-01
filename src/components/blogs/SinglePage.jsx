@@ -45,7 +45,7 @@ const SinglePage = () => {
   //   queryKey: ["articles"],
   //   queryFn: () =>
   //     fetch(
-  //       `https://department-server-tau.vercel.app/api/v1/find-blog-data/${id}`,
+  //       `http://localhost:8080/api/v1/find-blog-data/${id}`,
   //       {
   //         method: "GET",
   //         headers: {
@@ -60,7 +60,7 @@ const SinglePage = () => {
       setIsLoading(true);
       try {
         const { data } = await axios.get(
-          `https://department-server-tau.vercel.app/api/v1/find-blog-data/${id}`
+          `http://localhost:8080/api/v1/find-blog-data/${id}`
         );
         if (data.data) {
           setIsLoading(false);
@@ -83,7 +83,7 @@ const SinglePage = () => {
       </div>
     );
   }
-    setTimeout(() => Prism.highlightAll(), 0);
+  setTimeout(() => Prism.highlightAll(), 0);
 
   // useEffect(() => {
   //   Prism.highlightAll();
