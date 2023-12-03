@@ -32,17 +32,14 @@ const EditProfile = () => {
     };
 
     //send data on database
-    fetch(
-      `https://department-server-tau.vercel.app/api/v1/update-user/${email}`,
-      {
-        method: "PATCH",
-        headers: {
-          "content-type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify(user),
-      }
-    )
+    fetch(`http://localhost:8080/api/v1/update-user/${email}`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(user),
+    })
       .then((res) => res.json())
       .then((data) => {
         if (data) {
@@ -55,7 +52,7 @@ const EditProfile = () => {
   const getUser = async () => {
     try {
       const { data } = await axios.get(
-        "https://department-server-tau.vercel.app/api/v1/find-user",
+        "http://localhost:8080/api/v1/find-user",
         {
           method: "GET",
           headers: {

@@ -15,7 +15,7 @@ export default function BlogPost() {
       body: body,
       image: image,
     };
-    fetch("https://department-server-tau.vercel.app/api/v1/create-blog", {
+    fetch("http://localhost:8080/api/v1/create-blog", {
       method: "POST",
       headers: {
         "content-type": "application/json",

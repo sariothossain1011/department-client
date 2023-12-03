@@ -28,7 +28,7 @@ const SubjectList = () => {
         },
       };
       const res = await axios.delete(
-        `https://department-server-tau.vercel.app/api/v1/delete-subject/${id}`,
+        `http://localhost:8080/api/v1/delete-subject/${id}`,
         config
       );
       if (res.status === 200) {
@@ -52,7 +52,7 @@ const SubjectList = () => {
         },
       };
       const { data } = await axios.get(
-        `https://department-server-tau.vercel.app/api/v1/find-subject-list`,
+        `http://localhost:8080/api/v1/find-subject-list`,
         config
       );
       const subjectData = await data.data;

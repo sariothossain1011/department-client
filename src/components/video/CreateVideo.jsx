@@ -36,7 +36,7 @@ const CreateVideo = () => {
       };
 
       const { data } = await axios.post(
-        `https://department-server-tau.vercel.app/api/v1/create-video`,
+        `http://localhost:8080/api/v1/create-video`,
         subjectData,
         config
       );
@@ -61,7 +61,7 @@ const CreateVideo = () => {
         },
       };
       const { data } = await axios.get(
-        `https://department-server-tau.vercel.app/api/v1/find-subject-list`,
+        `http://localhost:8080/api/v1/find-subject-list`,
         config
       );
       const videoData = await data.data;

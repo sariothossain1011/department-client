@@ -4,7 +4,7 @@ const instance = axios.create();
 export const UploadImages = async (formData, path, token) => {
   try {
     const { data } = await instance.post(
-      `https://department-server-tau.vercel.app/api/v1/uploadImages`,
+      `http://localhost:8080/api/v1/uploadImages`,
       formData,
       { path },
       {

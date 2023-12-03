@@ -15,7 +15,7 @@ const Show = () => {
   } = useQuery({
     queryKey: ["articles"],
     queryFn: () =>
-      fetch("https://department-server-tau.vercel.app/api/v1/find-blog-list", {
+      fetch("http://localhost:8080/api/v1/find-blog-list", {
         method: "GET",
         headers: {
           "content-type": "applicataion/json",
@@ -45,8 +45,6 @@ const Show = () => {
     const path = `/article/${id}`;
     navigate(path);
   };
-
-   
 
   return (
     <div className="overflow-x-hidden sm:overflow-x-hidden">

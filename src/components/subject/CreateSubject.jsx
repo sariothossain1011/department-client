@@ -35,7 +35,7 @@ const CreateSubject = () => {
       };
 
       const { data } = await axios.post(
-        `https://department-server-tau.vercel.app/api/v1/create-subject`,
+        `http://localhost:8080/api/v1/create-subject`,
         subjectData,
         config
       );
@@ -60,7 +60,7 @@ const CreateSubject = () => {
         },
       };
       const { data } = await axios.get(
-        `https://department-server-tau.vercel.app/api/v1/find-course-list`,
+        `http://localhost:8080/api/v1/find-course-list`,
         config
       );
       const courseData = await data.data;
