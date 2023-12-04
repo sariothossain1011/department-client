@@ -7,6 +7,7 @@ import moment from "moment";
 import { FaRegEdit } from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { API } from "../../helpers/secret";
 
 const SemesterList = () => {
   const navigate = useNavigate();
@@ -28,10 +29,7 @@ const SemesterList = () => {
           Authorization: `Bearer ${token}`, // Assuming it's a Bearer token
         },
       };
-      const res = await axios.post(
-        `http://localhost:8080/api/v1/delete-course/${id}`,
-        config
-      );
+      const res = await axios.post(`${API}delete-course/${id}`, config);
       if (res.status === 200) {
         navigate("/admin/semesterList");
         return <>{toast.success("Course Delete Successfull")}</>;
@@ -53,7 +51,8 @@ const SemesterList = () => {
         },
       };
       const { data } = await axios.get(
-        `http://localhost:8080/api/v1/find-course-list`,
+        `${API}find-course-list`,
+
         config
       );
       const courseData = await data.data;

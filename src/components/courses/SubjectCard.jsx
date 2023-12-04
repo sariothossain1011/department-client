@@ -2,6 +2,7 @@ import React, { Fragment, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { FaArrowRight } from "react-icons/fa";
+import { API } from "../../helpers/secret";
 const SubjectCard = () => {
   const { semesterId } = useParams();
 
@@ -15,7 +16,7 @@ const SubjectCard = () => {
     try {
       if (semesterId) {
         const { data } = await axios.get(
-          `http://localhost:8080/api/v1/course-find-subject/${semesterId}`
+          `${API}course-find-subject/${semesterId}`
         );
         const subjectData = await data.data;
         setSubject(subjectData);

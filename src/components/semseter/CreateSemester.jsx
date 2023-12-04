@@ -1,10 +1,9 @@
 import React, { Fragment, useRef, useState } from "react";
-import Picture from "../ProfilePicture";
-import { useForm } from "react-hook-form";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
+import { API } from "../../helpers/secret";
 const CreateSemester = () => {
   const navigate = useNavigate();
 
@@ -28,7 +27,7 @@ const CreateSemester = () => {
       };
 
       const { data } = await axios.post(
-        `http://localhost:8080/api/v1/create-course`,
+        `${API}create-course`,
         semesterData,
         config
       );

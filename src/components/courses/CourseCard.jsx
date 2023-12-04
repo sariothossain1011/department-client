@@ -1,6 +1,8 @@
 import axios from "axios";
 import React, { Fragment, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import { API } from '../../helpers/secret';
+
 
 const CourseCard = () => {
   const [semester, setSemester] = useState([]);
@@ -11,12 +13,12 @@ const CourseCard = () => {
 
   const fetchData = async () => {
     try {
-      const { data } = await axios.get(
-        "http://localhost:8080/api/v1/find-course-list"
-      );
 
-      const semesterData = await data.data;
-      setSemester(semesterData);
+      const {data} = await axios.get(`${API}find-course-list`);
+      
+      const semesterData = await data.data ;
+      setSemester(semesterData)
+
     } catch (error) {
       console.log("......error", error);
     }

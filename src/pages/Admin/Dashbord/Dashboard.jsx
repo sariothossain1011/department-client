@@ -67,7 +67,6 @@ function Dashboard() {
                 Profile
               </Link>
             </li>
-            {details?.role == "admin" && (
               <li className="mx-4 my-3">
                 <Link
                   to="users"
@@ -76,8 +75,7 @@ function Dashboard() {
                   All Users
                 </Link>
               </li>
-            )}
-            {details?.role == "admin" && (
+           
               <>
                 <li>
                   <div class="flex flex-col w-full">
@@ -207,7 +205,6 @@ function Dashboard() {
                   </Link>
                 </li>
               </>
-            )}
 
             <li className="mx-4 my-3">
               <Link

@@ -2,6 +2,7 @@ import React, { Fragment, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import Video from "./Video";
+import { API } from "../../helpers/secret";
 
 const Classes = () => {
   const { subjectId } = useParams();
@@ -20,9 +21,7 @@ const Classes = () => {
 
   const fetchVideoData = async (id) => {
     try {
-      const { data } = await axios.get(
-        `http://localhost:8080/api/v1/find-subject-by-video/${id}`
-      );
+      const { data } = await axios.get(`${API}find-subject-by-video/${id}`);
       const VideoData = await data.data;
       setVideo(VideoData);
       if (VideoData && VideoData.length > 0) {
@@ -37,7 +36,7 @@ const Classes = () => {
 
   return (
     <Fragment>
-      <div className="mx-auto flex flex-row w-11/12 h-full pt-2 gap-6">
+      <div className="mx-auto flex flex-row flex-wrap w-11/12 h-full pt-2 gap-6">
         <Video link={activeVid} title={actTitle} description={description} />
         <div
           className="w-3/6 shadow-lg shadow-gray-600 overflow-y-scroll flex flex-col mt-4 border-slate-200 border-2 rounded-lg"

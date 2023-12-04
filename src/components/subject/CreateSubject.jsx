@@ -4,6 +4,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
+import { API } from "../../helpers/secret";
 const CreateSubject = () => {
   const navigate = useNavigate();
 
@@ -35,7 +36,7 @@ const CreateSubject = () => {
       };
 
       const { data } = await axios.post(
-        `http://localhost:8080/api/v1/create-subject`,
+        `${API}create-subject`,
         subjectData,
         config
       );
@@ -59,10 +60,7 @@ const CreateSubject = () => {
           Authorization: `Bearer ${token}`, // Assuming it's a Bearer token
         },
       };
-      const { data } = await axios.get(
-        `http://localhost:8080/api/v1/find-course-list`,
-        config
-      );
+      const { data } = await axios.get(`${API}find-course-list`, config);
       const courseData = await data.data;
       setSemesterData(courseData);
     } catch (error) {

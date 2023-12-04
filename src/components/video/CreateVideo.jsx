@@ -3,6 +3,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
+import { API } from "../../helpers/secret";
 const CreateVideo = () => {
   const navigate = useNavigate();
 
@@ -36,7 +37,7 @@ const CreateVideo = () => {
       };
 
       const { data } = await axios.post(
-        `http://localhost:8080/api/v1/create-video`,
+        `https://department-server-tau.vercel.app/api/v1/create-video`,
         subjectData,
         config
       );
@@ -61,7 +62,7 @@ const CreateVideo = () => {
         },
       };
       const { data } = await axios.get(
-        `http://localhost:8080/api/v1/find-subject-list`,
+        `https://department-server-tau.vercel.app/api/v1/find-subject-list`,
         config
       );
       const videoData = await data.data;
