@@ -29,10 +29,7 @@ const SemesterList = () => {
           Authorization: `Bearer ${token}`, // Assuming it's a Bearer token
         },
       };
-      const res = await axios.post(
-        `${API}delete-course/${id}`,
-        config
-      );
+      const res = await axios.post(`${API}delete-course/${id}`, config);
       if (res.status === 200) {
         navigate("/admin/semesterList");
         return <>{toast.success("Course Delete Successfull")}</>;
@@ -55,6 +52,7 @@ const SemesterList = () => {
       };
       const { data } = await axios.get(
         `${API}find-course-list`,
+
         config
       );
       const courseData = await data.data;

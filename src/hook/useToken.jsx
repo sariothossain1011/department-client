@@ -17,7 +17,7 @@ const useToken = (user) => {
     }
 
     if (email) {
-      fetch(`https://department-server-tau.vercel.app/api/v1/Registration`, {
+      fetch(`http://localhost:8080/api/v1/Registration`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",

@@ -37,7 +37,7 @@ function AddTecher() {
     const addTeacher = async () => {
       try {
         const { data } = await axios.post(
-          "https://department-server-tau.vercel.app/api/v1/create-teacher",
+          "http://localhost:8080/api/v1/create-teacher",
           teacher,
           {
             method: "POST",

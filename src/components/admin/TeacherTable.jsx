@@ -28,7 +28,7 @@ function TeacherTable() {
         },
       };
       const res = await axios.delete(
-        `https://department-server-tau.vercel.app/api/v1/delete-teacher/${id}`,
+        `http://localhost:8080/api/v1/delete-teacher/${id}`,
         config
       );
       if (res.status === 200) {
@@ -52,7 +52,7 @@ function TeacherTable() {
         },
       };
       const { data } = await axios.get(
-        `https://department-server-tau.vercel.app/api/v1/find-teacher-list`,
+        `http://localhost:8080/api/v1/find-teacher-list`,
         config
       );
       const userData = await data.data;
@@ -72,7 +72,7 @@ function TeacherTable() {
         },
       };
       const res = await axios.put(
-        `https://department-server-tau.vercel.app/api/v1/admin/${adminId}`,
+        `http://localhost:8080/api/v1/admin/${adminId}`,
         "admin",
         config
       );

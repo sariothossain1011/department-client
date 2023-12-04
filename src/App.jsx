@@ -26,8 +26,8 @@ import { useEffect } from "react";
 import Show from "./components/blogs/Show";
 import SinglePage from "./components/blogs/SinglePage";
 import DetailsTeacher from "./components/teacher/DetailsTeacher";
-  import { ToastContainer} from "react-toastify";
-  import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import SubjectsPage from "./pages/courses/SubjectsPage";
 import ClassesPage from "./pages/courses/ClassesPage";
 import AddTecher from "./pages/Admin/AddTecher";
@@ -39,9 +39,9 @@ import CreateVideoPage from "./pages/Video/CreateVideoPage";
 import VideoListPage from "./pages/Video/VideoListPage";
 import Teachers from "./pages/Admin/Dashbord/Teachers";
 function App() {
-    useEffect(() => {
-      AOS.init();
-    }, []);
+  useEffect(() => {
+    AOS.init();
+  }, []);
   return (
     <BrowserRouter>
       <Header />
@@ -49,15 +49,21 @@ function App() {
         <Route index path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="teachers" element={<TeacherPages />} />
-        <Route path="details-teacher" element={<DetailsTeacher />} />
+        <Route path="teacher/:id" element={<DetailsTeacher />} />
         <Route
           path="specificTeacher/:id"
           element={<SpecificTeacher></SpecificTeacher>}
         />
         <Route path="/courses" element={<CoursePage />} />
         <Route path="/courses/:semesterId" element={<CourseSinglePage />} />
-        <Route path="/courses/:semesterId/:subjectId" element={<SubjectsPage />} />
-        <Route path="/courses/:semesterId/:subjectId/:videos" element={<ClassesPage />} />
+        <Route
+          path="/courses/:semesterId/:subjectId"
+          element={<SubjectsPage />}
+        />
+        <Route
+          path="/courses/:semesterId/:subjectId/:videos"
+          element={<ClassesPage />}
+        />
         <Route path="/achievements" element={<AchievementPage />} />
         <Route path="/gallery" element={<GalleryPage />} />
         <Route path="/blogs" element={<BlogPage />} />

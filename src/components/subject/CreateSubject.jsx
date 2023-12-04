@@ -60,10 +60,7 @@ const CreateSubject = () => {
           Authorization: `Bearer ${token}`, // Assuming it's a Bearer token
         },
       };
-      const { data } = await axios.get(
-        `${API}find-course-list`,
-        config
-      );
+      const { data } = await axios.get(`${API}find-course-list`, config);
       const courseData = await data.data;
       setSemesterData(courseData);
     } catch (error) {
