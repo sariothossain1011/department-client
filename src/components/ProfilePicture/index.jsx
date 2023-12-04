@@ -2,8 +2,11 @@ import React, { useRef, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase/firebase.init";
 import ProfilePicture from "./ProfilePicture";
+
+
 import "./style.css";
 const Picture = ({ pRef,  register, picture, setPicture }) => {
+
   const { user } = useAuthState(auth);
   const popup = useRef(null);
   // useClickOutside(popup, () => setShow(false));
@@ -32,6 +35,7 @@ const Picture = ({ pRef,  register, picture, setPicture }) => {
       setImage(event.target.result);
     };
   };
+
   return (
     <div className="">
       <input

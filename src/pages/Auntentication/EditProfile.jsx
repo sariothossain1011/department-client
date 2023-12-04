@@ -1,18 +1,21 @@
 import { useAuthState } from "react-firebase-hooks/auth";
 import "./Profile.css";
+
 import { useForm } from "react-hook-form";
 import auth from "../../firebase/firebase.init";
 import Picture from "../../components/ProfilePicture";
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { redirect } from "react-router-dom";
 const EditProfile = () => {
   const [user] = useAuthState(auth);
   const token = localStorage.getItem("accessToken");
   const pRef = useRef(null);
   const [details, setDetails] = useState();
-  const [picture, setPicture] = useState(user?.photoURL);
-
+  const [picture, setPicture] = useState(details?.image);
+  const [revalid, setRevalid] = useState(false)
+console.log(user?.photoURL);
   const {
     register,
     formState: { errors },
@@ -27,10 +30,9 @@ const EditProfile = () => {
       email: email,
       image: picture,
       userName: data?.userName,
-      phone: data?.phone,
+      mobile: data?.phone,
       bio: data.bio,
     };
-
     //send data on database
     fetch(`http://localhost:8080/api/v1/update-user/${email}`, {
       method: "PATCH",
@@ -44,7 +46,7 @@ const EditProfile = () => {
       .then((data) => {
         if (data) {
           toast.success("You are Successfully Update Profile!");
-
+          setRevalid(true)
           reset();
         }
       });
@@ -68,8 +70,8 @@ const EditProfile = () => {
   };
   useEffect(() => {
     getUser();
-  }, []);
-
+  }, [revalid]);
+console.log(details);
   return (
     <div>
       <div className="main-content z-auto">
@@ -211,22 +213,16 @@ const EditProfile = () => {
 
                             <input
                               type="text"
+                              defaultValue={
+                                details?.userName ? details.userName : ""
+                              }
                               id="input-username"
                               className="fromControl fromControl-alternative"
                               placeholder="Username"
-                              {...register("userName", {
-                                required: {
-                                  value: true,
-                                  message: "user name is required*",
-                                },
-                              })}
+                              {...register("userName")}
                             />
                           </div>
-                          <p className="text-left text-red-500">
-                            {errors.userName?.type === "required" && (
-                              <span>{errors.userName.message}</span>
-                            )}
-                          </p>
+                    
                         </div>
 
                         <div className="col-lg-6">
@@ -278,19 +274,13 @@ const EditProfile = () => {
                               id="input-phone"
                               className="fromControl fromControl-alternative"
                               placeholder="Phone Number"
-                              {...register("phone", {
-                                required: {
-                                  value: true,
-                                  message: "Number is required*",
-                                },
-                              })}
+                              defaultValue={
+                                details?.mobile ? details.mobile : ""
+                              }
+                              {...register("phone")}
                             />
                           </div>
-                          <p className="text-left text-red-500">
-                            {errors.phone?.type === "required" && (
-                              <span>{errors.phone.message}</span>
-                            )}
-                          </p>
+                         
                         </div>
                       </div>
                     </div>
@@ -314,11 +304,8 @@ const EditProfile = () => {
                         setPicture={setPicture}
                         register={register}
                       />
-                      <p className="text-left text-red-500">
-                        {errors.image?.type === "required" && (
-                          <span>{errors.image.message}</span>
-                        )}
-                      </p>
+
+                
                     </div>
 
                     <hr className="my-4" />
@@ -338,6 +325,9 @@ const EditProfile = () => {
                         <label className="text-[#0A57E5]">About Me</label>
                         <textarea
                           rows="7"
+                          defaultValue={
+                            details?.bio ? details.bio : ""
+                          }
                           className="fromControl fromControl-alternative"
                           placeholder="A few words about you ..."
                           {...register("bio")}
