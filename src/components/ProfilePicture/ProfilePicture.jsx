@@ -5,6 +5,7 @@ import { UploadImages } from "../../functions/uploadImages";
 import { PulseLoader } from "react-spinners";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase/firebase.init";
+import { Axios } from "axios";
 
 const ProfilePicture = ({
   setImage,
@@ -51,17 +52,24 @@ const ProfilePicture = ({
   const updateProfilePic = async () => {
     try {
       setLoading(true);
-
       let img = await getCroppedImage();
       let blob = await fetch(img).then((b) => b.blob());
       const path = `${user?.displayName}/profile_pictures`;
       let formData = new FormData();
       formData.append("file", blob);
-      formData.append("path", path);
-      const res = await UploadImages(formData, path, user?.accessToken);
-      if (res[0].url) {
-        setPicture(res[0].url);
-        setImage("")
+      formData.append("upload_preset", "jjgp80ld");
+      formData.append("cloud_name", "duaikhblk");
+      // formData.append("path", path);
+      // const res = await UploadImages(formData, path, user?.accessToken);
+      const res = await UploadImages(formData);
+      // const res = await Axios.post(
+      //   "https://api.cloudinary.com/v1_1/duaikhblk/image/upload",
+      //   formData
+      // );
+      console.log(res.url);
+      if (res.url) {
+        setPicture(res.url);
+        setImage("");
         setLoading(false);
       }
     } catch (error) {
@@ -125,7 +133,7 @@ const ProfilePicture = ({
         <button
           className="blue_btn"
           disabled={loading}
-          onClick={() => updateProfilePic()}
+          onClick={updateProfilePic}
         >
           {loading ? <PulseLoader color="#0553E3" size={10} /> : "Save"}
         </button>

@@ -1,18 +1,10 @@
-import axios from "axios";
-const instance = axios.create();
+import axios, { Axios } from "axios";
 
-export const UploadImages = async (formData, path, token) => {
+export const UploadImages = async (formData) => {
   try {
-    const { data } = await instance.post(
-      `http://localhost:8080/api/v1/uploadImages`,
+    const { data } = await axios.post(
+      `https://api.cloudinary.com/v1_1/duaikhblk/image/upload`,
       formData,
-      { path },
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "content-type": "multipart/form-data",
-        },
-      }
     );
     return data;
   } catch (error) {
