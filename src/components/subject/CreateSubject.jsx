@@ -14,6 +14,7 @@ const CreateSubject = () => {
   const [subjectDescription, setSubjectDescription] = useState("");
   const [courseId, setCourseId] = useState("");
   const [semesterData, setSemesterData] = useState([]);
+  console.log(semesterData)
 
   useEffect(() => {
     fetchCourseData();
@@ -61,6 +62,7 @@ const CreateSubject = () => {
         },
       };
       const { data } = await axios.get(`${API}find-course-list`, config);
+      console.log("data subject",data)
       const courseData = await data.data;
       setSemesterData(courseData);
     } catch (error) {

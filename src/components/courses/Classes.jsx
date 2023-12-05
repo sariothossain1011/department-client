@@ -36,16 +36,16 @@ const Classes = () => {
 
   return (
     <Fragment>
-      <div className="mx-auto flex flex-row flex-wrap w-11/12 h-full pt-2 gap-6">
+      <div className="mx-auto flex flex-row  w-11/12 h-full pt-2 gap-6">
         <Video link={activeVid} title={actTitle} description={description} />
         <div
-          className="w-3/6 shadow-lg shadow-gray-600 overflow-y-scroll flex flex-col mt-4 border-slate-200 border-2 rounded-lg"
+          className="w-3/6 shadow-lg  overflow-y-scroll flex flex-col mt-4 border-slate-200 border-2 rounded-lg"
           style={{ height: "min(38vw, 650px)" }}
         >
           {video.length > 0 ? (
-            <ul className="p-2 shadow menu dropdown-content cmt-dropdown-content z-[1] rounded-box w-full">
+            <ul className="p-2  menu dropdown-content cmt-dropdown-content z-[1] rounded-box w-full">
               {video.map((e, index) => (
-                <li key={index}>
+                <li key={index} className=" ">
                   <div
                     className="hover:bg-gray-300 p-1 mt-2 border-2 rounded-xl  shadow-xl "
                     onClick={() => {
